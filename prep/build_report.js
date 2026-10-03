@@ -8,7 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 const {
-  Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell,
+  Document, Packer, Paragraph, TextRun, ImageRun, Table, TableRow, TableCell, ExternalHyperlink,
   WidthType, AlignmentType, SectionType, BorderStyle, ShadingType,
 } = require("docx");
 
@@ -18,7 +18,7 @@ const DEST = path.join(__dirname, "..", "Phase2_Data_Preparation_Report.docx");
 const J = (n) => JSON.parse(fs.readFileSync(path.join(OUT, n), "utf8"));
 const V = J("01_load.json"), A = J("02_analysis.json"), C = J("03_cleaning.json");
 const W2 = J("04_word2vec.json"), K = J("05_correlations.json");
-const DRIVE_URL = "";   // link to the cleaned dataset on Google Drive
+const DRIVE_URL = "https://drive.google.com/drive/folders/1zVfZamzpx0P-tyvNQ8fbEE2nyBqw1Dcy?usp=sharing";   // link to the cleaned dataset on Google Drive
 
 // ------------------------------------------------------------------ number formatting
 const N = (x) => Math.round(Number(x)).toLocaleString("en-US");
@@ -329,7 +329,11 @@ s7.push(...table("The cleaned dataset: comments and positives per target at 0.5.
     ...["toxicity", "insult", "identity_attack", "obscene", "sexual_explicit", "threat", "severe_toxicity"].map(yrow),
     ["identity annotated", N(fin.identity_annotated.train), N(fin.identity_annotated.validation), N(fin.identity_annotated.test)]],
   ["l", "r", "r", "r"]));
-s7.push(body(`The cleaned data holds ${N(fin.rows.all)} comments: ${N(fin.rows.train)} for training, ${N(fin.rows.validation)} for validation and ${N(fin.rows.test)} for testing. Cleaning did not change the class balance, which stays at ${Pp(fin.positives.train.toxicity.pct)} toxic in training and ${Pp(fin.positives.validation.toxicity.pct)} and ${Pp(fin.positives.test.toxicity.pct)} in validation and test. The mean comment is ${N(fin.text_chars.train.mean)} characters (median ${N(fin.text_chars.train.median)}). Each split is stored as a Parquet file of ${fin.n_columns} columns (${MB(fin.files["train.parquet"])} for training) with its row-aligned Word2Vec matrix. Every fitted parameter (clip limits, means, standard deviations, publication categories and the word vectors) is saved next to them, so the same pipeline can be applied to a new comment.${DRIVE_URL ? ` The cleaned dataset is available at ${DRIVE_URL}.` : ""}`));
+s7.push(body(`The cleaned data holds ${N(fin.rows.all)} comments: ${N(fin.rows.train)} for training, ${N(fin.rows.validation)} for validation and ${N(fin.rows.test)} for testing. Cleaning did not change the class balance, which stays at ${Pp(fin.positives.train.toxicity.pct)} toxic in training and ${Pp(fin.positives.validation.toxicity.pct)} and ${Pp(fin.positives.test.toxicity.pct)} in validation and test. The mean comment is ${N(fin.text_chars.train.mean)} characters (median ${N(fin.text_chars.train.median)}). Each split is stored as a Parquet file of ${fin.n_columns} columns (${MB(fin.files["train.parquet"])} for training) with its row-aligned Word2Vec matrix. Every fitted parameter (clip limits, means, standard deviations, publication categories and the word vectors) is saved next to them, so the same pipeline can be applied to a new comment.`));
+if (DRIVE_URL) s7.push(new Paragraph({ spacing: { before: 60, after: 60 }, children: [
+  new TextRun({ text: "Cleaned dataset: ", bold: true }),
+  new ExternalHyperlink({ link: DRIVE_URL, children: [new TextRun({ text: DRIVE_URL, color: "1F4E9A", underline: {}, size: SMALL })] }),
+] }));
 
 s7.push(h1(6, "Conclusion"));
 s7.push(body(`The full Civil Comments release has ${V.n_columns} columns, but the analysis shows that one of them, the comment text, does nearly all the work. The columns that looked most predictive were produced after posting: the annotator count, the moderation verdict, reader reactions and thread size. Using them would have meant training on the answer. The date carries no signal, and the identity columns are missing for most comments and are kept for auditing rather than prediction. Cleaning removed duplicate and leaking training rows without touching the benchmark splits. It left ${N(fin.rows.train)} training comments represented by a Word2Vec embedding and ${nTab} scaled tabular features, none of which approaches the leakage limit. Phase 3 can start training immediately: the features are encoded and scaled, and the bias audit has its identity columns.`));
