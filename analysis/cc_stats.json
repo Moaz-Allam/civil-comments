@@ -1,0 +1,120 @@
+{
+  "source": "Hugging Face dataset server",
+  "retrieved": "2026-09-20",
+  "n_train": 1804874,
+  "splits": {
+    "train": 1804874,
+    "validation": 97320,
+    "test": 97320
+  },
+  "total_rows": 1999514,
+  "parquet_bytes": 422061071,
+  "means": {
+    "toxicity": 0.10302,
+    "severe_toxicity": 0.00458,
+    "obscene": 0.01388,
+    "threat": 0.00931,
+    "insult": 0.08115,
+    "identity_attack": 0.02264,
+    "sexual_explicit": 0.00661
+  },
+  "text_chars": {
+    "mean": 297.2343,
+    "median": 202,
+    "min": 1,
+    "max": 1906,
+    "std": 269.1966
+  },
+  "positives_at_0.5": {
+    "toxicity": {
+      "count": 144334,
+      "pct": 7.9969
+    },
+    "severe_toxicity": {
+      "count": 13,
+      "pct": 0.0007
+    },
+    "obscene": {
+      "count": 9603,
+      "pct": 0.5321
+    },
+    "threat": {
+      "count": 4280,
+      "pct": 0.2371
+    },
+    "insult": {
+      "count": 106534,
+      "pct": 5.9026
+    },
+    "identity_attack": {
+      "count": 13410,
+      "pct": 0.743
+    },
+    "sexual_explicit": {
+      "count": 4686,
+      "pct": 0.2596
+    }
+  },
+  "toxicity_by_threshold": [
+    {
+      "threshold": 0.1,
+      "count": 538645,
+      "pct": 29.8439
+    },
+    {
+      "threshold": 0.2,
+      "count": 377686,
+      "pct": 20.9259
+    },
+    {
+      "threshold": 0.3,
+      "count": 266089,
+      "pct": 14.7428
+    },
+    {
+      "threshold": 0.4,
+      "count": 201476,
+      "pct": 11.1629
+    },
+    {
+      "threshold": 0.5,
+      "count": 144334,
+      "pct": 7.9969
+    },
+    {
+      "threshold": 0.6,
+      "count": 96410,
+      "pct": 5.3416
+    },
+    {
+      "threshold": 0.7,
+      "count": 45451,
+      "pct": 2.5182
+    },
+    {
+      "threshold": 0.8,
+      "count": 30831,
+      "pct": 1.7082
+    },
+    {
+      "threshold": 0.9,
+      "count": 7517,
+      "pct": 0.4165
+    }
+  ],
+  "threshold_sensitivity_0.4_to_0.6": {
+    "at_0.4": 201476,
+    "at_0.6": 96410,
+    "ratio": 2.0898
+  },
+  "majority_baseline_acc": {
+    "toxicity": 92.0031,
+    "severe_toxicity": 99.9993,
+    "obscene": 99.4679,
+    "threat": 99.7629,
+    "insult": 94.0974,
+    "identity_attack": 99.257,
+    "sexual_explicit": 99.7404
+  },
+  "majority_baseline_mean_acc": 97.7611
+}

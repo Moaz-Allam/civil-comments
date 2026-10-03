@@ -1,0 +1,142 @@
+
+========================================================================
+1. COLUMN INVENTORY (all splits)
+========================================================================
+id                                    int64                 missing          0 (  0.00%)  unique  1,999,514
+toxicity                              float32               missing          0 (  0.00%)  unique      3,063
+comment_text                          string                missing          0 (  0.00%)  unique  1,971,914
+severe_toxicity                       float32               missing          0 (  0.00%)  unique      1,568
+obscene                               float32               missing          0 (  0.00%)  unique      2,551
+identity_attack                       float32               missing          0 (  0.00%)  unique      2,427
+insult                                float32               missing          0 (  0.00%)  unique      3,185
+threat                                float32               missing          0 (  0.00%)  unique      2,175
+asian                                 float32               missing  1,551,514 ( 77.59%)  unique        131
+atheist                               float32               missing  1,551,514 ( 77.59%)  unique         86
+bisexual                              float32               missing  1,551,514 ( 77.59%)  unique         92
+black                                 float32               missing  1,551,514 ( 77.59%)  unique        137
+buddhist                              float32               missing  1,551,514 ( 77.59%)  unique         70
+christian                             float32               missing  1,551,514 ( 77.59%)  unique        167
+female                                float32               missing  1,551,514 ( 77.59%)  unique        216
+heterosexual                          float32               missing  1,551,514 ( 77.59%)  unique        135
+hindu                                 float32               missing  1,551,514 ( 77.59%)  unique         81
+homosexual_gay_or_lesbian             float32               missing  1,551,514 ( 77.59%)  unique        136
+intellectual_or_learning_disability   float32               missing  1,551,514 ( 77.59%)  unique         78
+jewish                                float32               missing  1,551,514 ( 77.59%)  unique        127
+latino                                float32               missing  1,551,514 ( 77.59%)  unique        114
+male                                  float32               missing  1,551,514 ( 77.59%)  unique        260
+muslim                                float32               missing  1,551,514 ( 77.59%)  unique        145
+other_disability                      float32               missing  1,551,514 ( 77.59%)  unique        126
+other_gender                          float32               missing  1,551,514 ( 77.59%)  unique        181
+other_race_or_ethnicity               float32               missing  1,551,514 ( 77.59%)  unique        203
+other_religion                        float32               missing  1,551,514 ( 77.59%)  unique        208
+other_sexual_orientation              float32               missing  1,551,514 ( 77.59%)  unique        196
+physical_disability                   float32               missing  1,551,514 ( 77.59%)  unique         83
+psychiatric_or_mental_illness         float32               missing  1,551,514 ( 77.59%)  unique         98
+transgender                           float32               missing  1,551,514 ( 77.59%)  unique        135
+white                                 float32               missing  1,551,514 ( 77.59%)  unique        162
+created_date                          datetime64[ns, UTC]   missing          0 (  0.00%)  unique  1,998,662
+publication_id                        int16                 missing          0 (  0.00%)  unique         53
+parent_id                             float64               missing    864,806 ( 43.25%)  unique    786,827
+article_id                            int32                 missing          0 (  0.00%)  unique    116,943
+rating                                category              missing          0 (  0.00%)  unique          2
+funny                                 int32                 missing          0 (  0.00%)  unique         62
+wow                                   int32                 missing          0 (  0.00%)  unique         15
+sad                                   int32                 missing          0 (  0.00%)  unique         25
+likes                                 int32                 missing          0 (  0.00%)  unique        171
+disagree                              int32                 missing          0 (  0.00%)  unique        100
+sexual_explicit                       float32               missing          0 (  0.00%)  unique      1,973
+identity_annotator_count              int32                 missing          0 (  0.00%)  unique        164
+toxicity_annotator_count              int32                 missing          0 (  0.00%)  unique        814
+
+========================================================================
+2. LABELS (train)
+========================================================================
+toxicity           mean 0.1030  zero  70.07%  >=0.5   144,334 (7.9969%)  distinct values 2,913
+severe_toxicity    mean 0.0046  zero  94.20%  >=0.5        13 (0.0007%)  distinct values 1,460
+obscene            mean 0.0139  zero  91.85%  >=0.5     9,603 (0.5321%)  distinct values 2,417
+threat             mean 0.0093  zero  94.08%  >=0.5     4,280 (0.2371%)  distinct values 2,053
+insult             mean 0.0812  zero  74.82%  >=0.5   106,534 (5.9026%)  distinct values 3,042
+identity_attack    mean 0.0226  zero  87.89%  >=0.5    13,410 (0.7430%)  distinct values 2,294
+sexual_explicit    mean 0.0066  zero  96.18%  >=0.5     4,686 (0.2596%)  distinct values 1,864
+labels per comment: {0: 1656327, 1: 26477, 2: 110980, 3: 10012, 4: 1011, 5: 60, 6: 6, 7: 1}
+toxic comments carrying no subtype >= 0.5: 15.45%
+
+========================================================================
+3. ANNOTATOR COUNTS (train)
+========================================================================
+toxicity_annotator_count {'mean': 8.785, 'std': 43.501, 'min': 3.0, 'p25': 4.0, 'median': 4.0, 'p75': 6.0, 'p90': 10.0, 'p99': 75.0, 'max': 4936.0, 'skew': 38.287, 'pct_zero': 0.0}
+   top values {4: 1185412, 10: 262216, 6: 195839, 5: 76341, 80: 8537, 70: 8383, 76: 5188, 7: 5170}
+identity_annotator_count {'mean': 1.439, 'std': 17.87, 'min': 0.0, 'p25': 0.0, 'median': 0.0, 'p75': 0.0, 'p90': 4.0, 'p99': 10.0, 'max': 1866.0, 'skew': 90.894, 'pct_zero': 77.554}
+   top values {0: 1399744, 4: 252471, 10: 85586, 6: 47079, 5: 18794, 7: 442, 9: 264, 11: 214}
+toxic rate by annotator band {'3-5': {'n': 1261806, 'toxic_rate': 0.0036725138412719545}, '6-9': {'n': 203669, 'toxic_rate': 0.020842641737328704}, '10-99': {'n': 338066, 'toxic_rate': 0.39838966355682026}, '100+': {'n': 1333, 'toxic_rate': 0.5798949737434359}}
+
+========================================================================
+4. TEXT (train, plus overlaps across splits)
+========================================================================
+n_chars        median   202.00  p99   999.00  rho +0.066  r_pb -0.021  mean toxic 277.613 vs 298.940
+n_words        median    35.00  p99   178.00  rho +0.067  r_pb -0.018  mean toxic 48.387 vs 51.526
+n_letters      median   158.00  p99   796.00  rho +0.066  r_pb -0.022  mean toxic 218.337 vs 235.278
+n_upper        median     5.00  p99    46.00  rho +0.059  r_pb +0.005  mean toxic 8.985 vs 8.783
+n_caps_words   median     0.00  p99     5.00  rho +0.027  r_pb +0.016  mean toxic 0.540 vs 0.437
+n_exclaim      median     0.00  p99     4.00  rho +0.049  r_pb +0.042  mean toxic 0.370 vs 0.212
+n_question     median     0.00  p99     4.00  rho +0.022  r_pb +0.005  mean toxic 0.453 vs 0.435
+n_punct_runs   median     0.00  p99     1.00  rho +0.039  r_pb +0.033  mean toxic 0.070 vs 0.039
+n_masked       median     0.00  p99     0.00  rho +0.053  r_pb +0.050  mean toxic 0.011 vs 0.001
+n_urls         median     0.00  p99     2.00  rho -0.035  r_pb -0.024  mean toxic 0.026 vs 0.058
+n_digits       median     0.00  p99    18.00  rho -0.051  r_pb -0.044  mean toxic 0.703 vs 1.351
+n_newlines     median     0.00  p99    11.00  rho +0.027  r_pb -0.010  mean toxic 1.036 vs 1.124
+n_non_ascii    median     0.00  p99     4.00  rho -0.002  r_pb -0.005  mean toxic 0.120 vs 0.180
+upper_ratio    median     0.03  p99     0.25  rho -0.016  r_pb +0.001  mean toxic 0.048 vs 0.048
+mean_word_len  median     5.71  p99    10.00  rho +0.012  r_pb -0.014  mean toxic 5.779 vs 5.983
+duplicate texts: 10,180 distinct strings cover 34,231 rows (24,051 redundant); 596 of them disagree on y
+most repeated: [{'text': 'Well said.', 'count': 184}, {'text': 'No.', 'count': 160}, {'text': 'Exactly.', 'count': 132}, {'text': 'Yes.', 'count': 127}, {'text': 'Thank you.', 'count': 120}]
+validation/test rows whose exact text is also in train: {'validation': 1522, 'test': 1554}
+train rows whose exact text appears in validation/test: 11845
+rows with HTML entities: 6  rows with HTML-like tags: 839
+
+========================================================================
+5. IDENTITY COLUMNS (train)
+========================================================================
+male                                   mentioned  44,484 (10.98%)  toxic if mentioned 15.03%  r=+0.074
+female                                 mentioned  53,429 (13.19%)  toxic if mentioned 13.68%  r=+0.063
+transgender                            mentioned   2,499 ( 0.62%)  toxic if mentioned 21.29%  r=+0.043
+other_gender                           mentioned      10 ( 0.00%)  toxic if mentioned 30.0%  r=+0.013
+heterosexual                           mentioned   1,291 ( 0.32%)  toxic if mentioned 22.77%  r=+0.038
+homosexual_gay_or_lesbian              mentioned  10,997 ( 2.71%)  toxic if mentioned 28.38%  r=+0.131
+bisexual                               mentioned     287 ( 0.07%)  toxic if mentioned 21.6%  r=+0.021
+other_sexual_orientation               mentioned      10 ( 0.00%)  toxic if mentioned 30.0%  r=+0.033
+christian                              mentioned  40,423 ( 9.98%)  toxic if mentioned 9.09%  r=-0.007
+jewish                                 mentioned   7,651 ( 1.89%)  toxic if mentioned 16.21%  r=+0.047
+muslim                                 mentioned  21,006 ( 5.19%)  toxic if mentioned 22.76%  r=+0.134
+hindu                                  mentioned     580 ( 0.14%)  toxic if mentioned 10.52%  r=+0.004
+buddhist                               mentioned     588 ( 0.15%)  toxic if mentioned 11.73%  r=+0.005
+atheist                                mentioned   1,412 ( 0.35%)  toxic if mentioned 13.1%  r=+0.011
+other_religion                         mentioned     325 ( 0.08%)  toxic if mentioned 14.46%  r=+0.021
+black                                  mentioned  14,901 ( 3.68%)  toxic if mentioned 31.39%  r=+0.167
+white                                  mentioned  25,082 ( 6.19%)  toxic if mentioned 28.06%  r=+0.194
+asian                                  mentioned   4,578 ( 1.13%)  toxic if mentioned 12.36%  r=+0.007
+latino                                 mentioned   2,004 ( 0.49%)  toxic if mentioned 19.36%  r=+0.029
+other_race_or_ethnicity                mentioned     508 ( 0.13%)  toxic if mentioned 18.7%  r=+0.036
+physical_disability                    mentioned      82 ( 0.02%)  toxic if mentioned 7.32%  r=+0.008
+intellectual_or_learning_disability    mentioned      93 ( 0.02%)  toxic if mentioned 6.45%  r=+0.036
+psychiatric_or_mental_illness          mentioned   4,889 ( 1.21%)  toxic if mentioned 21.07%  r=+0.055
+other_disability                       mentioned       5 ( 0.00%)  toxic if mentioned 20.0%  r=+0.008
+annotated rows 405,130 (22.45%); toxic rate 11.36% overall, 16.42% when any identity is mentioned, 7.70% when none is
+
+========================================================================
+6. METADATA (train)
+========================================================================
+rating {'values': {'approved': 1684758, 'rejected': 120116}, 'toxic_rate': {'rejected': 0.2597905358153785, 'approved': 0.06714851628542497}, 'mean_score': {'rejected': 0.25787752866744995, 'approved': 0.09197642654180527}, 'cramers_v': 0.17701546983593766}
+publication_id: 53 values, Cramer's V 0.0674, toxic rate 1.464% - 16.312% (publications with >= 1000 comments)
+created_date 2015-09-29 10:50:41.987077+00:00 -> 2017-11-11 01:01:10.822969+00:00
+   by year {2015: {'n': 651, 'toxic_rate': 0.05222734254992319}, 2016: {'n': 433954, 'toxic_rate': 0.07938399000815755}, 2017: {'n': 1370269, 'toxic_rate': 0.08016747076668887}}
+   Cramer's V {'year': 0.002301688368878255, 'month': 0.021041309321923413, 'hour_utc': 0.01712546238240069, 'weekday': 0.008963737542864518}
+   split ranges {'train': ['2015-09-29 10:50:41.987077+00:00', '2017-11-11 01:01:10.822969+00:00'], 'validation': ['2015-09-29 16:28:42.346126+00:00', '2017-11-11 00:55:27.310248+00:00'], 'test': ['2015-09-29 16:20:53.059406+00:00', '2017-11-11 00:58:26.909716+00:00']}
+parent_id {'pct_missing': 43.14129407371373, 'toxic_rate_reply': 0.07522792206020494, 'toxic_rate_top_level': 0.08621761365241715, 'cramers_v_is_reply': 0.02006635395782958, 'pct_parents_present_in_data': 97.97978616837584}
+article_id {'n_unique': 105380, 'spearman_thread_size_vs_score': 0.055050691456092815, 'articles_shared_with_val_test': 0}
+funny     zero  85.87%  p99    4.0  max     102  skew   11.8  rho +0.006
+wow       zero  96.21%  p99    1.0  max      21  skew    8.2  rho +0.016
+sad       zero  92.11%  p99    2.0  max      31  skew    7.9  rho +0.026
+likes     zero  41.08%  p99   21.0  max     300  skew    6.9  rho +0.020
+disagree  zero  76.80%  p99    8.0  max     187  skew   11.7  rho +0.044
+wrote prep\out\02_analysis.json

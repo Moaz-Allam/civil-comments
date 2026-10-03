@@ -1,0 +1,748 @@
+{
+  "funnel": [
+    {
+      "step": "raw release",
+      "train": 1804874,
+      "validation": 97320,
+      "test": 97320,
+      "all": 1999514,
+      "note": ""
+    },
+    {
+      "step": "A. text cleaned; empty texts removed",
+      "train": 1804874,
+      "validation": 97320,
+      "test": 97320,
+      "all": 1999514,
+      "note": "0 comments were empty after cleaning"
+    },
+    {
+      "step": "B1. duplicate texts inside train collapsed to one row",
+      "train": 1779523,
+      "validation": 97320,
+      "test": 97320,
+      "all": 1974163,
+      "note": "kept the copy with the most annotators"
+    },
+    {
+      "step": "B2. train texts that also occur in val/test removed",
+      "train": 1777414,
+      "validation": 97320,
+      "test": 97320,
+      "all": 1972054,
+      "note": ""
+    }
+  ],
+  "decisions": {
+    "duplicates": {
+      "train_rows_in_duplicate_groups": 36567,
+      "duplicate_groups": 11216,
+      "groups_with_conflicting_y": 684,
+      "train_rows_removed": 25351
+    },
+    "cross_split_leakage": {
+      "train_rows_removed": 2109
+    },
+    "not_filtered": {
+      "low_annotator_count": "only 53 training rows have fewer than 4 annotators; score = votes / annotators holds for every row, so they are valid labels",
+      "very_short_texts": "texts such as 'No.' or 'BS' are real comments and some are toxic; kept",
+      "long_texts": "the longest comment has 1906 characters (99th percentile 999), so there are no runaway lengths to cap",
+      "validation_test": "left untouched except for row-level text cleaning, so results stay comparable with published numbers on the same split"
+    },
+    "targets": {
+      "threshold": 0.5,
+      "modelling_targets": [
+        "toxicity",
+        "obscene",
+        "threat",
+        "insult",
+        "identity_attack",
+        "sexual_explicit"
+      ],
+      "dropped_target": {
+        "severe_toxicity": "13 positives in 1,804,874 training comments at 0.5; score kept, not used as a target"
+      }
+    },
+    "text_stats": {
+      "kept": [
+        "n_words",
+        "mean_word_len",
+        "upper_ratio",
+        "n_caps_words",
+        "n_exclaim",
+        "n_question",
+        "n_punct_runs",
+        "n_masked",
+        "n_urls",
+        "n_digits",
+        "n_newlines",
+        "n_upper"
+      ],
+      "dropped": {
+        "n_non_ascii": "no association with the label (rho -0.002, r_pb -0.005)",
+        "n_chars": "redundant with n_words (r = 0.992)",
+        "n_letters": "redundant with n_words (r = 0.990)"
+      },
+      "pairwise_r_train": {
+        "n_words": {
+          "n_words": 1.0,
+          "mean_word_len": -0.049,
+          "upper_ratio": -0.17,
+          "n_caps_words": 0.223,
+          "n_exclaim": 0.053,
+          "n_question": 0.188,
+          "n_punct_runs": 0.036,
+          "n_masked": 0.02,
+          "n_urls": 0.042,
+          "n_digits": 0.305,
+          "n_newlines": 0.475,
+          "n_non_ascii": 0.063,
+          "n_chars": 0.992,
+          "n_letters": 0.99,
+          "n_upper": 0.578
+        },
+        "mean_word_len": {
+          "n_words": -0.049,
+          "mean_word_len": 1.0,
+          "upper_ratio": 0.001,
+          "n_caps_words": -0.007,
+          "n_exclaim": 0.009,
+          "n_question": -0.007,
+          "n_punct_runs": 0.002,
+          "n_masked": -0.001,
+          "n_urls": 0.223,
+          "n_digits": 0.075,
+          "n_newlines": 0.014,
+          "n_non_ascii": 0.009,
+          "n_chars": -0.014,
+          "n_letters": -0.014,
+          "n_upper": -0.004
+        },
+        "upper_ratio": {
+          "n_words": -0.17,
+          "mean_word_len": 0.001,
+          "upper_ratio": 1.0,
+          "n_caps_words": 0.412,
+          "n_exclaim": 0.14,
+          "n_question": 0.011,
+          "n_punct_runs": 0.113,
+          "n_masked": 0.005,
+          "n_urls": -0.001,
+          "n_digits": -0.007,
+          "n_newlines": -0.014,
+          "n_non_ascii": 0.009,
+          "n_chars": -0.17,
+          "n_letters": -0.174,
+          "n_upper": 0.321
+        },
+        "n_caps_words": {
+          "n_words": 0.223,
+          "mean_word_len": -0.007,
+          "upper_ratio": 0.412,
+          "n_caps_words": 1.0,
+          "n_exclaim": 0.151,
+          "n_question": 0.078,
+          "n_punct_runs": 0.137,
+          "n_masked": 0.016,
+          "n_urls": 0.035,
+          "n_digits": 0.119,
+          "n_newlines": 0.161,
+          "n_non_ascii": 0.021,
+          "n_chars": 0.224,
+          "n_letters": 0.219,
+          "n_upper": 0.824
+        },
+        "n_exclaim": {
+          "n_words": 0.053,
+          "mean_word_len": 0.009,
+          "upper_ratio": 0.14,
+          "n_caps_words": 0.151,
+          "n_exclaim": 1.0,
+          "n_question": 0.063,
+          "n_punct_runs": 0.545,
+          "n_masked": 0.014,
+          "n_urls": -0.004,
+          "n_digits": 0.019,
+          "n_newlines": 0.058,
+          "n_non_ascii": 0.011,
+          "n_chars": 0.051,
+          "n_letters": 0.045,
+          "n_upper": 0.155
+        },
+        "n_question": {
+          "n_words": 0.188,
+          "mean_word_len": -0.007,
+          "upper_ratio": 0.011,
+          "n_caps_words": 0.078,
+          "n_exclaim": 0.063,
+          "n_question": 1.0,
+          "n_punct_runs": 0.308,
+          "n_masked": 0.009,
+          "n_urls": 0.031,
+          "n_digits": 0.058,
+          "n_newlines": 0.169,
+          "n_non_ascii": 0.026,
+          "n_chars": 0.186,
+          "n_letters": 0.18,
+          "n_upper": 0.166
+        },
+        "n_punct_runs": {
+          "n_words": 0.036,
+          "mean_word_len": 0.002,
+          "upper_ratio": 0.113,
+          "n_caps_words": 0.137,
+          "n_exclaim": 0.545,
+          "n_question": 0.308,
+          "n_punct_runs": 1.0,
+          "n_masked": 0.013,
+          "n_urls": -0.005,
+          "n_digits": 0.014,
+          "n_newlines": 0.041,
+          "n_non_ascii": 0.01,
+          "n_chars": 0.035,
+          "n_letters": 0.03,
+          "n_upper": 0.129
+        },
+        "n_masked": {
+          "n_words": 0.02,
+          "mean_word_len": -0.001,
+          "upper_ratio": 0.005,
+          "n_caps_words": 0.016,
+          "n_exclaim": 0.014,
+          "n_question": 0.009,
+          "n_punct_runs": 0.013,
+          "n_masked": 1.0,
+          "n_urls": 0.002,
+          "n_digits": 0.005,
+          "n_newlines": 0.015,
+          "n_non_ascii": 0.004,
+          "n_chars": 0.02,
+          "n_letters": 0.018,
+          "n_upper": 0.023
+        },
+        "n_urls": {
+          "n_words": 0.042,
+          "mean_word_len": 0.223,
+          "upper_ratio": -0.001,
+          "n_caps_words": 0.035,
+          "n_exclaim": -0.004,
+          "n_question": 0.031,
+          "n_punct_runs": -0.005,
+          "n_masked": 0.002,
+          "n_urls": 1.0,
+          "n_digits": 0.317,
+          "n_newlines": 0.213,
+          "n_non_ascii": 0.034,
+          "n_chars": 0.103,
+          "n_letters": 0.099,
+          "n_upper": 0.092
+        },
+        "n_digits": {
+          "n_words": 0.305,
+          "mean_word_len": 0.075,
+          "upper_ratio": -0.007,
+          "n_caps_words": 0.119,
+          "n_exclaim": 0.019,
+          "n_question": 0.058,
+          "n_punct_runs": 0.014,
+          "n_masked": 0.005,
+          "n_urls": 0.317,
+          "n_digits": 1.0,
+          "n_newlines": 0.302,
+          "n_non_ascii": 0.058,
+          "n_chars": 0.327,
+          "n_letters": 0.306,
+          "n_upper": 0.268
+        },
+        "n_newlines": {
+          "n_words": 0.475,
+          "mean_word_len": 0.014,
+          "upper_ratio": -0.014,
+          "n_caps_words": 0.161,
+          "n_exclaim": 0.058,
+          "n_question": 0.169,
+          "n_punct_runs": 0.041,
+          "n_masked": 0.015,
+          "n_urls": 0.213,
+          "n_digits": 0.302,
+          "n_newlines": 1.0,
+          "n_non_ascii": 0.091,
+          "n_chars": 0.497,
+          "n_letters": 0.488,
+          "n_upper": 0.39
+        },
+        "n_non_ascii": {
+          "n_words": 0.063,
+          "mean_word_len": 0.009,
+          "upper_ratio": 0.009,
+          "n_caps_words": 0.021,
+          "n_exclaim": 0.011,
+          "n_question": 0.026,
+          "n_punct_runs": 0.01,
+          "n_masked": 0.004,
+          "n_urls": 0.034,
+          "n_digits": 0.058,
+          "n_newlines": 0.091,
+          "n_non_ascii": 1.0,
+          "n_chars": 0.073,
+          "n_letters": 0.064,
+          "n_upper": 0.063
+        },
+        "n_chars": {
+          "n_words": 0.992,
+          "mean_word_len": -0.014,
+          "upper_ratio": -0.17,
+          "n_caps_words": 0.224,
+          "n_exclaim": 0.051,
+          "n_question": 0.186,
+          "n_punct_runs": 0.035,
+          "n_masked": 0.02,
+          "n_urls": 0.103,
+          "n_digits": 0.327,
+          "n_newlines": 0.497,
+          "n_non_ascii": 0.073,
+          "n_chars": 1.0,
+          "n_letters": 0.999,
+          "n_upper": 0.585
+        },
+        "n_letters": {
+          "n_words": 0.99,
+          "mean_word_len": -0.014,
+          "upper_ratio": -0.174,
+          "n_caps_words": 0.219,
+          "n_exclaim": 0.045,
+          "n_question": 0.18,
+          "n_punct_runs": 0.03,
+          "n_masked": 0.018,
+          "n_urls": 0.099,
+          "n_digits": 0.306,
+          "n_newlines": 0.488,
+          "n_non_ascii": 0.064,
+          "n_chars": 0.999,
+          "n_letters": 1.0,
+          "n_upper": 0.579
+        },
+        "n_upper": {
+          "n_words": 0.578,
+          "mean_word_len": -0.004,
+          "upper_ratio": 0.321,
+          "n_caps_words": 0.824,
+          "n_exclaim": 0.155,
+          "n_question": 0.166,
+          "n_punct_runs": 0.129,
+          "n_masked": 0.023,
+          "n_urls": 0.092,
+          "n_digits": 0.268,
+          "n_newlines": 0.39,
+          "n_non_ascii": 0.063,
+          "n_chars": 0.585,
+          "n_letters": 0.579,
+          "n_upper": 1.0
+        }
+      }
+    },
+    "removed_columns": {
+      "toxicity_annotator_count": "artefact of how comments were sampled for annotation: toxic rate 0.37% with 3-5 annotators vs 39.84% with 10-99; unknown when a comment is posted. Kept as n_annotators for sample weighting, never as a feature",
+      "identity_annotator_count": "duplicates the identity_annotated flag",
+      "rating": "peer-review verdict given after posting, i.e. a second human judgement of the same comment (Cramer's V 0.177); kept in the dump as metadata, not a feature",
+      "funny, wow, sad, likes, disagree": "reader reactions accumulate after posting; |rho| <= 0.044",
+      "created_date": "Cramer's V with the label: year 0.002, month 0.021, hour 0.017, weekday 0.009; all splits span the same dates, and a 2015-2017 calendar does not transfer to new data",
+      "parent_id": "replaced by is_reply",
+      "article_id": "identifier with 105380 values and no article shared between train and val/test, so a value seen in training never occurs again; dropped",
+      "publication_id": "replaced by its one-hot encoding"
+    }
+  },
+  "text_cleaning": {
+    "rows_changed": 838146,
+    "pct_rows_changed": 41.91748594908562,
+    "chars_removed": 2549308,
+    "rows_empty_after_cleaning": 0,
+    "rows_with_empty_bow_text": 88
+  },
+  "final": {
+    "rows": {
+      "train": 1777414,
+      "validation": 97320,
+      "test": 97320,
+      "all": 1972054
+    },
+    "positives": {
+      "train": {
+        "toxicity": {
+          "count": 142239,
+          "pct": 8.00258127819405
+        },
+        "severe_toxicity": {
+          "count": 13,
+          "pct": 0.000731399662655971
+        },
+        "obscene": {
+          "count": 9497,
+          "pct": 0.5343155843264429
+        },
+        "threat": {
+          "count": 4227,
+          "pct": 0.23781741338821458
+        },
+        "insult": {
+          "count": 104834,
+          "pct": 5.898119402682775
+        },
+        "identity_attack": {
+          "count": 13265,
+          "pct": 0.7463089634716504
+        },
+        "sexual_explicit": {
+          "count": 4647,
+          "pct": 0.26144724864325364
+        }
+      },
+      "validation": {
+        "toxicity": {
+          "count": 7671,
+          "pct": 7.882244143033293
+        },
+        "severe_toxicity": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "obscene": {
+          "count": 525,
+          "pct": 0.5394574599260172
+        },
+        "threat": {
+          "count": 224,
+          "pct": 0.2301685162351007
+        },
+        "insult": {
+          "count": 5769,
+          "pct": 5.92786683107275
+        },
+        "identity_attack": {
+          "count": 664,
+          "pct": 0.6822852445540485
+        },
+        "sexual_explicit": {
+          "count": 201,
+          "pct": 0.2065351418002466
+        }
+      },
+      "test": {
+        "toxicity": {
+          "count": 7777,
+          "pct": 7.991163173037402
+        },
+        "severe_toxicity": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "obscene": {
+          "count": 543,
+          "pct": 0.5579531442663379
+        },
+        "threat": {
+          "count": 221,
+          "pct": 0.22708590217838062
+        },
+        "insult": {
+          "count": 5776,
+          "pct": 5.935059597205097
+        },
+        "identity_attack": {
+          "count": 687,
+          "pct": 0.7059186189889026
+        },
+        "sexual_explicit": {
+          "count": 240,
+          "pct": 0.2466091245376079
+        }
+      }
+    },
+    "columns": [
+      "id",
+      "split",
+      "text",
+      "text_bow",
+      "toxicity",
+      "severe_toxicity",
+      "obscene",
+      "threat",
+      "insult",
+      "identity_attack",
+      "sexual_explicit",
+      "y_toxicity",
+      "y_severe_toxicity",
+      "y_obscene",
+      "y_threat",
+      "y_insult",
+      "y_identity_attack",
+      "y_sexual_explicit",
+      "n_annotators",
+      "f_n_words",
+      "f_mean_word_len",
+      "f_upper_ratio",
+      "f_n_caps_words",
+      "f_n_exclaim",
+      "f_n_question",
+      "f_n_punct_runs",
+      "f_n_masked",
+      "f_n_urls",
+      "f_n_digits",
+      "f_n_newlines",
+      "f_n_upper",
+      "f_is_reply",
+      "f_pub_6",
+      "f_pub_13",
+      "f_pub_21",
+      "f_pub_22",
+      "f_pub_43",
+      "f_pub_46",
+      "f_pub_52",
+      "f_pub_53",
+      "f_pub_54",
+      "f_pub_55",
+      "f_pub_66",
+      "f_pub_67",
+      "f_pub_73",
+      "f_pub_84",
+      "f_pub_87",
+      "f_pub_93",
+      "f_pub_100",
+      "f_pub_102",
+      "f_pub_105",
+      "f_pub_other",
+      "identity_annotated",
+      "male",
+      "female",
+      "transgender",
+      "other_gender",
+      "heterosexual",
+      "homosexual_gay_or_lesbian",
+      "bisexual",
+      "other_sexual_orientation",
+      "christian",
+      "jewish",
+      "muslim",
+      "hindu",
+      "buddhist",
+      "atheist",
+      "other_religion",
+      "black",
+      "white",
+      "asian",
+      "latino",
+      "other_race_or_ethnicity",
+      "physical_disability",
+      "intellectual_or_learning_disability",
+      "psychiatric_or_mental_illness",
+      "other_disability",
+      "publication_id",
+      "created_date",
+      "rating"
+    ],
+    "n_columns": 80,
+    "features": [
+      "f_n_words",
+      "f_mean_word_len",
+      "f_upper_ratio",
+      "f_n_caps_words",
+      "f_n_exclaim",
+      "f_n_question",
+      "f_n_punct_runs",
+      "f_n_masked",
+      "f_n_urls",
+      "f_n_digits",
+      "f_n_newlines",
+      "f_n_upper",
+      "f_is_reply",
+      "f_pub_6",
+      "f_pub_13",
+      "f_pub_21",
+      "f_pub_22",
+      "f_pub_43",
+      "f_pub_46",
+      "f_pub_52",
+      "f_pub_53",
+      "f_pub_54",
+      "f_pub_55",
+      "f_pub_66",
+      "f_pub_67",
+      "f_pub_73",
+      "f_pub_84",
+      "f_pub_87",
+      "f_pub_93",
+      "f_pub_100",
+      "f_pub_102",
+      "f_pub_105",
+      "f_pub_other"
+    ],
+    "n_features_tabular": 33,
+    "identity_annotated": {
+      "train": 400359,
+      "validation": 21293,
+      "test": 21577
+    },
+    "text_chars": {
+      "train": {
+        "mean": 298.3935245249559,
+        "median": 203.0
+      },
+      "validation": {
+        "mean": 297.4277127003699,
+        "median": 203.0
+      },
+      "test": {
+        "mean": 294.87354089601314,
+        "median": 201.0
+      }
+    },
+    "files": {
+      "train.parquet": 500943212,
+      "validation.parquet": 28418007,
+      "test.parquet": 28212460
+    },
+    "majority_baseline_acc_train": {
+      "toxicity": 91.99741872180594,
+      "severe_toxicity": 99.99926860033734,
+      "obscene": 99.46568441567356,
+      "threat": 99.76218258661179,
+      "insult": 94.10188059731722,
+      "identity_attack": 99.25369103652835,
+      "sexual_explicit": 99.73855275135675
+    },
+    "feature_check_train": {
+      "f_n_words": {
+        "mean": -5.494288135565739e-09,
+        "std": 1.0
+      },
+      "f_mean_word_len": {
+        "mean": -2.1977153430441376e-09,
+        "std": 1.0
+      },
+      "f_upper_ratio": {
+        "mean": -2.1977153430441376e-09,
+        "std": 1.0
+      },
+      "f_n_caps_words": {
+        "mean": -8.241432425393214e-09,
+        "std": 1.0
+      },
+      "f_n_exclaim": {
+        "mean": 1.3735721005048163e-08,
+        "std": 1.0
+      },
+      "f_n_question": {
+        "mean": 1.366704260874485e-08,
+        "std": 0.9999999403953552
+      },
+      "f_n_punct_runs": {
+        "mean": 2.0603581063483034e-08,
+        "std": 1.0
+      },
+      "f_n_masked": {
+        "mean": -2.918840724674965e-09,
+        "std": 1.0
+      },
+      "f_n_urls": {
+        "mean": 3.2965730145662064e-09,
+        "std": 1.0
+      },
+      "f_n_digits": {
+        "mean": 1.2636863111481489e-08,
+        "std": 1.0
+      },
+      "f_n_newlines": {
+        "mean": -1.950472316991636e-08,
+        "std": 1.0
+      },
+      "f_n_upper": {
+        "mean": 6.043717082349076e-09,
+        "std": 1.0
+      },
+      "f_is_reply": {
+        "mean": 0.5684123113692139,
+        "std": 0.4952977828274667
+      },
+      "f_pub_6": {
+        "mean": 0.006020544453908881,
+        "std": 0.07735826307024718
+      },
+      "f_pub_13": {
+        "mean": 0.08728129743548774,
+        "std": 0.28224690852736184
+      },
+      "f_pub_21": {
+        "mean": 0.20836788727893446,
+        "std": 0.40614135917641375
+      },
+      "f_pub_22": {
+        "mean": 0.030374465374977355,
+        "std": 0.1716154823966396
+      },
+      "f_pub_43": {
+        "mean": 0.00604867521016488,
+        "std": 0.07753768194149717
+      },
+      "f_pub_46": {
+        "mean": 0.0007032689063999721,
+        "std": 0.02650989842751094
+      },
+      "f_pub_52": {
+        "mean": 0.0013002035541522683,
+        "std": 0.03603489635663626
+      },
+      "f_pub_53": {
+        "mean": 0.0719123400625853,
+        "std": 0.2583427818980057
+      },
+      "f_pub_54": {
+        "mean": 0.3477721003660374,
+        "std": 0.4762633664152823
+      },
+      "f_pub_55": {
+        "mean": 0.07403058600866202,
+        "std": 0.26182073430344943
+      },
+      "f_pub_66": {
+        "mean": 0.004505421921960781,
+        "std": 0.06697108046511872
+      },
+      "f_pub_67": {
+        "mean": 0.0006160635620063756,
+        "std": 0.024812988012073125
+      },
+      "f_pub_73": {
+        "mean": 0.0009125617329446038,
+        "std": 0.030194858452739306
+      },
+      "f_pub_84": {
+        "mean": 0.0007977882474201283,
+        "std": 0.028233884426736397
+      },
+      "f_pub_87": {
+        "mean": 0.0009361915681996429,
+        "std": 0.03058293052946366
+      },
+      "f_pub_93": {
+        "mean": 0.001998971539551281,
+        "std": 0.04466516287599824
+      },
+      "f_pub_100": {
+        "mean": 0.013026790607027963,
+        "std": 0.1133891554210889
+      },
+      "f_pub_102": {
+        "mean": 0.1184670538208881,
+        "std": 0.32316043961983726
+      },
+      "f_pub_105": {
+        "mean": 0.021606108649982504,
+        "std": 0.14539359206057076
+      },
+      "f_pub_other": {
+        "mean": 0.0033216796987083482,
+        "std": 0.05753823081489541
+      }
+    }
+  }
+}

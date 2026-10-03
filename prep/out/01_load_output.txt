@@ -1,0 +1,23 @@
+
+========================================================================
+SOURCE FILES (SHA-256)
+========================================================================
+train.csv.gz                       285,921,926  82d217ec5c09cf25703fec20726e40def415367f37a8ea097976dacbd6a11260
+test_public_expanded.csv.gz         16,425,656  a5a8fba390af3f17639b1bcef9b1c1b38373d3e45728f7eb814bfe5f3ea1c3d2
+test_private_expanded.csv.gz        16,318,076  994cda8329554422d63a6691b66dcce838bc596f8975540f8e2d8b53cd993482
+
+========================================================================
+LOAD THE FULL RELEASE
+========================================================================
+train.csv.gz                     rows= 1,804,874  cols=45
+test_public_expanded.csv.gz      rows=    97,320  cols=45
+test_private_expanded.csv.gz     rows=    97,320  cols=45
+TOTAL rows=1,999,514  columns (excluding our split tag)=45
+
+========================================================================
+CHECKS
+========================================================================
+duplicate ids across all splits: 0
+
+wrote D:\Study\fall26\ml\project\data\interim\civil_comments_full.parquet  (318,561,480 bytes)
+wrote prep\out\01_load.json

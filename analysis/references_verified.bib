@@ -1,0 +1,149 @@
+% references_verified.bib
+% Every entry below was opened and checked against the publisher's page or the
+% dataset's own page on 19 September 2026. The "verified:" note on each entry
+% says what was confirmed and where. Entries that could NOT be confirmed are not
+% in this file -- see the evidence pack for the list of dropped citations.
+
+@misc{jigsaw2017challenge,
+  author       = {cjadams and Jeffrey Sorensen and Julia Elliott and Lucas Dixon and Mark McDonald and nithum and Will Cukierski},
+  title        = {Toxic Comment Classification Challenge},
+  year         = {2017},
+  howpublished = {Kaggle},
+  url          = {https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge},
+  note         = {verified: author string copied verbatim from the competition's own Citation box; competition ran 19 Dec 2017 -- 21 Mar 2018; metric is mean column-wise ROC AUC}
+}
+
+@misc{lee2018first,
+  author       = {{To Train Them Is My Cause} and Chun Ming Lee},
+  title        = {1st place solution overview},
+  year         = {2018},
+  howpublished = {Kaggle solution write-up, Toxic Comment Classification Challenge},
+  url          = {https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/writeups/toxic-crusaders-1st-place-solution-overview},
+  note         = {verified: author string copied verbatim from the write-up's own Citation box. The name "Toxic Crusaders" appears only in the sign-off and the URL slug}
+}
+
+@misc{neongen2018second,
+  author       = {neongen and {Computer says no}},
+  title        = {2nd place solution overview},
+  year         = {2018},
+  howpublished = {Kaggle solution write-up, Toxic Comment Classification Challenge},
+  url          = {https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/writeups/neongen-computer-says-no-2nd-place-solution-overvi},
+  note         = {verified: posted 29 Mar 2018; author string copied verbatim from the write-up's own Citation box}
+}
+
+@inproceedings{vanaken2018challenges,
+  author       = {Betty van Aken and Julian Risch and Ralf Krestel and Alexander L{\"o}ser},
+  title        = {Challenges for Toxic Comment Classification: An In-Depth Error Analysis},
+  booktitle    = {Proceedings of the 2nd Workshop on Abusive Language Online (ALW2)},
+  year         = {2018},
+  pages        = {33--42},
+  publisher    = {Association for Computational Linguistics},
+  url          = {https://aclanthology.org/W18-5105/},
+  note         = {verified: title, authors, venue and pages against the ACL Anthology landing page}
+}
+
+@inproceedings{schmidt2017survey,
+  author       = {Anna Schmidt and Michael Wiegand},
+  title        = {A Survey on Hate Speech Detection using Natural Language Processing},
+  booktitle    = {Proceedings of the Fifth International Workshop on Natural Language Processing for Social Media},
+  year         = {2017},
+  pages        = {1--10},
+  publisher    = {Association for Computational Linguistics},
+  url          = {https://aclanthology.org/W17-1101/},
+  note         = {verified: title, authors, venue and pages against the ACL Anthology landing page}
+}
+
+@article{fortuna2018survey,
+  author       = {Paula Fortuna and S{\'e}rgio Nunes},
+  title        = {A Survey on Automatic Detection of Hate Speech in Text},
+  journal      = {ACM Computing Surveys},
+  volume       = {51},
+  number       = {4},
+  articleno    = {85},
+  pages        = {85:1--85:30},
+  year         = {2018},
+  doi          = {10.1145/3232676},
+  note         = {verified: volume, issue, article number and page range from the published PDF}
+}
+
+@inproceedings{davidson2017automated,
+  author       = {Thomas Davidson and Dana Warmsley and Michael Macy and Ingmar Weber},
+  title        = {Automated Hate Speech Detection and the Problem of Offensive Language},
+  booktitle    = {Proceedings of the 11th International AAAI Conference on Web and Social Media (ICWSM)},
+  volume       = {11},
+  number       = {1},
+  pages        = {512--515},
+  year         = {2017},
+  url          = {https://ojs.aaai.org/index.php/ICWSM/article/view/14955},
+  note         = {verified: volume 11 no. 1, pages 512--515 on the AAAI OJS page. Final model = logistic regression with L2 over TF-IDF word n-grams, POS n-grams, readability and sentiment features; overall P/R/F1 = 0.91/0.90/0.90 but hate class P/R = 0.44/0.61}
+}
+
+@inproceedings{zampieri2019predicting,
+  author       = {Marcos Zampieri and Shervin Malmasi and Preslav Nakov and Sara Rosenthal and Noura Farra and Ritesh Kumar},
+  title        = {Predicting the Type and Target of Offensive Posts in Social Media},
+  booktitle    = {Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  year         = {2019},
+  pages        = {1415--1420},
+  publisher    = {Association for Computational Linguistics},
+  url          = {https://aclanthology.org/N19-1144/},
+  note         = {verified: pages 1415--1420 on the ACL Anthology page. OLID = 14,100 tweets, 13,240 train / 860 test; level A = 4,640 OFF vs 9,460 NOT (paper Table 3)}
+}
+
+@inproceedings{mathew2021hatexplain,
+  author       = {Binny Mathew and Punyajoy Saha and Seid Muhie Yimam and Chris Biemann and Pawan Goyal and Animesh Mukherjee},
+  title        = {{HateXplain}: A Benchmark Dataset for Explainable Hate Speech Detection},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume       = {35},
+  pages        = {14867--14875},
+  year         = {2021},
+  url          = {https://ojs.aaai.org/index.php/AAAI/article/view/17745},
+  note         = {verified: volume 35, pages 14867--14875. Paper states 9,055 Twitter + 11,093 Gab = 20,148 posts, 3 annotators each, Krippendorff alpha 0.46; class counts reproduced exactly from the released dataset.json}
+}
+
+@inproceedings{duchene2023benchmark,
+  author       = {Corentin Duch{\^e}ne and Henri Jamet and Pierre Guillaume and R{\'e}da Dehak},
+  title        = {A benchmark for toxic comment classification on Civil Comments dataset},
+  booktitle    = {Extraction et Gestion des Connaissances (EGC 2023)},
+  series       = {RNTI-E-39},
+  pages        = {19--30},
+  year         = {2023},
+  note         = {verified: arXiv:2301.11125, submitted 26 Jan 2023; the arXiv record's journal-reference field reads "EGC 2023, vol. RNTI-E-39, pp.19-30", so cite the conference version rather than the preprint},
+  url          = {https://arxiv.org/abs/2301.11125}
+}
+
+@misc{jigsaw2019bias,
+  author       = {cjadams and Daniel Borkan and inversion and Jeffrey Sorensen and Lucas Dixon and Lucy Vasserman and nithum},
+  title        = {Jigsaw Unintended Bias in Toxicity Classification},
+  year         = {2019},
+  howpublished = {Kaggle},
+  url          = {https://www.kaggle.com/competitions/jigsaw-unintended-bias-in-toxicity-classification},
+  note         = {verified: data page states ~2m Civil Comments comments, up to 10 annotators per comment (some seen by thousands), CC0 for data and text, 6 toxicity subtypes plus the target}
+}
+
+@article{adhikari2026multilabel,
+  author       = {Binita Adhikari and Pratistha Sapkota and Rajad Shakya},
+  title        = {Multi-Label Toxic Comment Detection Using {BERT}-Based {NLP} and Machine Learning},
+  journal      = {International Journal on Engineering Technology and Infrastructure Development (InJET-InDev)},
+  volume       = {2},
+  number       = {2},
+  pages        = {37--45},
+  year         = {2026},
+  url          = {https://www.nepjol.info/index.php/injetindev/article/view/95699},
+  note         = {verified: published 12 June 2026. Reports micro-F1 0.7354 for BERT vs Logistic Regression 0.3864, Random Forest 0.3790, Naive Bayes 0.3085, SVM 0.4651. NOTE: this is the paper an earlier draft misattributed to "Mizanur Rahman et al."}
+}
+
+@misc{davidson2017data,
+  author       = {Thomas Davidson},
+  title        = {hate-speech-and-offensive-language: data and code for the {ICWSM} 2017 paper},
+  howpublished = {GitHub repository, MIT License},
+  url          = {https://github.com/t-davidson/hate-speech-and-offensive-language},
+  note         = {verified: licence field returns spdx MIT; labeled_data.csv downloaded and counted -- 24,783 rows, classes 5.77\% hate / 77.43\% offensive / 16.80\% neither}
+}
+
+@misc{hatexplain2021data,
+  author       = {{hate-alert}},
+  title        = {{HateXplain} dataset},
+  howpublished = {GitHub repository, MIT License},
+  url          = {https://github.com/hate-alert/HateXplain},
+  note         = {verified: licence field returns spdx MIT; Data/dataset.json downloaded and counted -- 20,148 posts, every post with exactly 3 annotators}
+}

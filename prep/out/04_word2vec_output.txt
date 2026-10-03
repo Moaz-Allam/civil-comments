@@ -1,0 +1,23 @@
+
+========================================================================
+1. TRAIN WORD2VEC (training split only)
+========================================================================
+vocabulary 82,724 words from 93,291,771 tokens, 341s
+   idiot      -> imbecile, moron, asshat, ignoramus, idjit, buffoon
+   stupid     -> dumb, foolish, idiotic, silly, retarded, ignorant
+   xxmasked   -> grabbin, misanthropist, bullshitting, pussy, ssy, snator
+   excellent  -> superb, outstanding, insightful, elstun, kirstin, jayne
+   thanks     -> thank, thx, mahalo, thanx, kudos, thankyou
+
+========================================================================
+2. DOCUMENT VECTORS (mean of word vectors)
+========================================================================
+train        1,777,414 comments, 828 with no known word, 99.72% of tokens in vocabulary
+validation      97,320 comments, 57 with no known word, 99.66% of tokens in vocabulary
+test            97,320 comments, 38 with no known word, 99.66% of tokens in vocabulary
+
+========================================================================
+3. STANDARDISE WITH TRAINING STATISTICS
+========================================================================
+after scaling, first 200k training rows: {'mean_abs_mean': 0.07129214704036713, 'mean_std': 0.992857813835144}
+wrote prep\out\04_word2vec.json

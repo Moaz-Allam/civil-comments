@@ -1,0 +1,47 @@
+====================================================================
+INTEGRITY CHECKS
+====================================================================
+splits sum to the stated total             1,999,514  OK
+every histogram sums to the split size     1,804,874  OK
+histogram vs. independent row count          144,334  OK
+
+====================================================================
+POSITIVES PER LABEL AT THRESHOLD 0.5 (train split)
+====================================================================
+label                 comments    % of split
+toxicity               144,334       7.9969%
+severe_toxicity             13       0.0007%
+obscene                  9,603       0.5321%
+threat                   4,280       0.2371%
+insult                 106,534       5.9026%
+identity_attack         13,410       0.7430%
+sexual_explicit          4,686       0.2596%
+
+====================================================================
+TOXICITY POSITIVES AS THE THRESHOLD MOVES (train split)
+====================================================================
+>= 0.1      538,645   29.844%
+>= 0.2      377,686   20.926%
+>= 0.3      266,089   14.743%
+>= 0.4      201,476   11.163%
+>= 0.5      144,334    7.997%
+>= 0.6       96,410    5.342%
+>= 0.7       45,451    2.518%
+>= 0.8       30,831    1.708%
+>= 0.9        7,517    0.416%
+
+moving the threshold from 0.4 to 0.6 changes the positive set from 201,476 to 96,410, a factor of 2.09
+
+====================================================================
+WHY ACCURACY IS THE WRONG HEADLINE METRIC (train, threshold 0.5)
+====================================================================
+toxicity           always-negative accuracy = 92.0031%   F1 = 0.000
+severe_toxicity    always-negative accuracy = 99.9993%   F1 = 0.000
+obscene            always-negative accuracy = 99.4679%   F1 = 0.000
+threat             always-negative accuracy = 99.7629%   F1 = 0.000
+insult             always-negative accuracy = 94.0974%   F1 = 0.000
+identity_attack    always-negative accuracy = 99.2570%   F1 = 0.000
+sexual_explicit    always-negative accuracy = 99.7404%   F1 = 0.000
+mean across the seven labels = 97.7611%
+
+wrote cc_stats.json

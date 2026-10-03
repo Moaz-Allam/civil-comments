@@ -1,0 +1,35 @@
+
+========================================================================
+1. DISTRIBUTIONS BEFORE AND AFTER TRANSFORM (train)
+========================================================================
+n_words        skew    1.23 ->  -0.30
+mean_word_len  skew   41.61 ->   2.09
+upper_ratio    skew    9.34 ->   2.55
+n_caps_words   skew   26.37 ->   2.39
+n_exclaim      skew   39.34 ->   3.37
+n_question     skew    6.60 ->   1.73
+n_punct_runs   skew   11.68 ->   6.13
+n_masked       skew   36.60 ->  24.92
+n_urls         skew   10.77 ->   6.42
+n_digits       skew    8.19 ->   1.94
+n_newlines     skew    3.64 ->   1.38
+n_upper        skew   13.51 ->   0.19
+
+========================================================================
+2. CROSS-CORRELATION OF THE TABULAR FEATURES (train)
+========================================================================
+strongest pairs: [('f_n_words', 'f_n_upper', 0.755), ('f_n_caps_words', 'f_n_upper', 0.588), ('f_n_exclaim', 'f_n_punct_runs', 0.513), ('f_n_upper', 'f_n_newlines', 0.471), ('f_n_newlines', 'f_n_words', 0.462)]
+largest |r| between two publication columns 0.375; between a publication column and another feature 0.124
+
+========================================================================
+3. CORRELATION WITH EVERY TARGET
+========================================================================
+tabular   max |r| 0.1002  (f_n_masked vs obscene)
+Word2Vec  max |r| 0.1487  (dimension 57 vs toxicity)
+label score pairs with |r| >= 0.85: [('toxicity', 'insult', 0.9277922767252137)]
+
+========================================================================
+4. LEAKAGE RULE
+========================================================================
+largest |r| between any final feature and any target: 0.1487 -> PASS (threshold 0.85)
+wrote prep\out\05_correlations.json

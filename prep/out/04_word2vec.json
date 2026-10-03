@@ -1,0 +1,179 @@
+{
+  "settings": {
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 5,
+    "sg": 1,
+    "negative": 5,
+    "epochs": 5,
+    "seed": 42,
+    "pooling": "mean",
+    "scaling": "z-score per dimension, train statistics"
+  },
+  "vocabulary_size": 82724,
+  "corpus_words": 93291771,
+  "train_seconds": 341,
+  "neighbours": {
+    "idiot": [
+      [
+        "imbecile",
+        0.85
+      ],
+      [
+        "moron",
+        0.829
+      ],
+      [
+        "asshat",
+        0.785
+      ],
+      [
+        "ignoramus",
+        0.738
+      ],
+      [
+        "idjit",
+        0.737
+      ],
+      [
+        "buffoon",
+        0.729
+      ]
+    ],
+    "stupid": [
+      [
+        "dumb",
+        0.89
+      ],
+      [
+        "foolish",
+        0.794
+      ],
+      [
+        "idiotic",
+        0.768
+      ],
+      [
+        "silly",
+        0.73
+      ],
+      [
+        "retarded",
+        0.715
+      ],
+      [
+        "ignorant",
+        0.706
+      ]
+    ],
+    "xxmasked": [
+      [
+        "grabbin",
+        0.745
+      ],
+      [
+        "misanthropist",
+        0.702
+      ],
+      [
+        "bullshitting",
+        0.697
+      ],
+      [
+        "pussy",
+        0.681
+      ],
+      [
+        "ssy",
+        0.68
+      ],
+      [
+        "snator",
+        0.679
+      ]
+    ],
+    "excellent": [
+      [
+        "superb",
+        0.76
+      ],
+      [
+        "outstanding",
+        0.703
+      ],
+      [
+        "insightful",
+        0.69
+      ],
+      [
+        "elstun",
+        0.687
+      ],
+      [
+        "kirstin",
+        0.667
+      ],
+      [
+        "jayne",
+        0.657
+      ]
+    ],
+    "thanks": [
+      [
+        "thank",
+        0.826
+      ],
+      [
+        "thx",
+        0.768
+      ],
+      [
+        "mahalo",
+        0.745
+      ],
+      [
+        "thanx",
+        0.732
+      ],
+      [
+        "kudos",
+        0.721
+      ],
+      [
+        "thankyou",
+        0.682
+      ]
+    ]
+  },
+  "coverage": {
+    "train": {
+      "rows": 1777414,
+      "comments_with_no_known_word": 828,
+      "pct_tokens_in_vocabulary": 99.71639406438109
+    },
+    "validation": {
+      "rows": 97320,
+      "comments_with_no_known_word": 57,
+      "pct_tokens_in_vocabulary": 99.6623956579987
+    },
+    "test": {
+      "rows": 97320,
+      "comments_with_no_known_word": 38,
+      "pct_tokens_in_vocabulary": 99.66408183820816
+    }
+  },
+  "files": {
+    "train.npy": 710965728,
+    "validation.npy": 38928128,
+    "test.npy": 38928128
+  },
+  "raw_dimension_std_range": [
+    0.05450948688011436,
+    0.0807835990898603
+  ],
+  "check_train_first_200k": {
+    "mean_abs_mean": 0.07129214704036713,
+    "mean_std": 0.992857813835144
+  },
+  "seconds": 413
+}

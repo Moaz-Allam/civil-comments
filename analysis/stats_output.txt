@@ -1,0 +1,86 @@
+================================================================
+FILE INTEGRITY
+================================================================
+train.csv          68,802,655 bytes  sha256=bd4084611bd27c939ba98e5e63bc3e5a2c1a4e99477dcba46c829e4c986c429d
+test.csv           60,354,593 bytes  sha256=c2513ce4abb98c4d1d216e3ca0d4377d57589a0989aa8c06a840509a16c786e8
+test_labels.csv     4,976,930 bytes  sha256=2a56dcbeba5c05f965a636f56cb5ae972bad60c3b952c239b49be18d7ab70f49
+
+================================================================
+SHAPES AND COLUMNS
+================================================================
+train.csv        rows=159571  cols=8  ['id', 'comment_text', 'toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
+test.csv         rows=153164  cols=2  ['id', 'comment_text']
+test_labels.csv  rows=153164  cols=7  ['id', 'toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']
+duplicate ids in train: 0
+null comment_text in train: 0
+
+================================================================
+LABEL COUNTS (train)
+================================================================
+label              positives    % of train
+toxic                 15,294        9.584%
+severe_toxic           1,595        1.000%
+obscene                8,449        5.295%
+threat                   478        0.300%
+insult                 7,877        4.936%
+identity_hate          1,405        0.880%
+
+comments with >=1 label :  16225  (10.168%)
+comments with 0 labels  : 143346  (89.832%)
+
+================================================================
+LABELS PER COMMENT (train)
+================================================================
+0 label(s): 143,346  (89.832%)
+1 label(s):   6,360  ( 3.986%)
+2 label(s):   3,480  ( 2.181%)
+3 label(s):   4,209  ( 2.638%)
+4 label(s):   1,760  ( 1.103%)
+5 label(s):     385  ( 0.241%)
+6 label(s):      31  ( 0.019%)
+
+================================================================
+CO-OCCURRENCE WITH 'toxic' (train)
+================================================================
+of  1,595 'severe_toxic' comments, 100.00% are also labelled toxic
+of  8,449 'obscene' comments,  93.81% are also labelled toxic
+of    478 'threat' comments,  93.93% are also labelled toxic
+of  7,877 'insult' comments,  93.23% are also labelled toxic
+of  1,405 'identity_hate' comments,  92.67% are also labelled toxic
+
+================================================================
+COMMENT LENGTH (train)
+================================================================
+words  : {'count': 159571.0, 'mean': 67.27, 'std': 99.23, 'min': 1.0, '25%': 17.0, '50%': 36.0, '75%': 75.0, 'max': 1411.0}
+  p90=152  p95=230  p99=567
+chars  : {'count': 159571.0, 'mean': 394.07, 'std': 590.72, 'min': 6.0, '25%': 96.0, '50%': 205.0, '75%': 435.0, 'max': 5000.0}
+share longer than 128 words: 12.67%   longer than 256 words: 4.05%
+
+================================================================
+TEST SPLIT SCORING MASK
+================================================================
+rows in test_labels.csv       : 153164
+scored rows (labels != -1)    : 63978  (41.77%)
+unscored rows (labels == -1)  : 89186
+
+label              positives    % of scored test
+toxic                  6,090              9.519%
+severe_toxic             367              0.574%
+obscene                3,691              5.769%
+threat                   211              0.330%
+insult                 3,427              5.357%
+identity_hate            712              1.113%
+
+================================================================
+NAIVE MAJORITY BASELINE (predict 0 for everything, train split)
+================================================================
+toxic            accuracy = 90.416%   F1 = 0.000 (no positive predictions)
+severe_toxic     accuracy = 99.000%   F1 = 0.000 (no positive predictions)
+obscene          accuracy = 94.705%   F1 = 0.000 (no positive predictions)
+threat           accuracy = 99.700%   F1 = 0.000 (no positive predictions)
+insult           accuracy = 95.064%   F1 = 0.000 (no positive predictions)
+identity_hate    accuracy = 99.120%   F1 = 0.000 (no positive predictions)
+mean per-label accuracy = 96.334%
+exact-match accuracy of the all-zero predictor = 89.832%
+
+wrote jigsaw_stats.json
