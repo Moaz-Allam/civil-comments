@@ -10,10 +10,11 @@ decision. Missing values, sizes and overlaps are reported for every split.
 
 Measures used
     numeric feature vs. score   Pearson r and Spearman rho
-    numeric feature vs. y       point-biserial r (Pearson with a 0/1 variable),
-                                and the feature's mean in each class
-    nominal feature vs. y       Cramer's V from the chi-square contingency table,
-                                and the toxic rate inside each category
+    numeric feature vs. y       Pearson r with the 0/1 label, and the feature's
+                                mean in each class
+    nominal feature vs. y       information gain IG = H(y) - H(y | feature) in
+                                bits (the ID3 split criterion), and the toxic
+                                rate inside each category
 
 Output: prep/out/02_analysis.json
 Run:    python prep/02_feature_analysis.py
@@ -23,7 +24,7 @@ import sys
 
 import numpy as np
 import pandas as pd
-from scipy.stats import chi2_contingency, spearmanr
+from scipy.stats import spearmanr
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import (RAW_PARQUET, SPLITS, LABELS, IDENTITIES, IDENTITY_GROUPS, REACTIONS,
@@ -35,14 +36,17 @@ full = read_parquet(RAW_PARQUET)
 N_ALL = len(full)
 
 
-def cramers_v(x, y):
-    table = pd.crosstab(x, y)
-    if table.shape[0] < 2 or table.shape[1] < 2:
-        return 0.0
-    chi2 = chi2_contingency(table, correction=False)[0]
-    n = table.to_numpy().sum()
-    k = min(table.shape) - 1
-    return float(np.sqrt(chi2 / (n * k)))
+def entropy(p):
+    p = p[p > 0]
+    return float(-(p * np.log2(p)).sum())
+
+
+def info_gain(x, y):
+    table = pd.crosstab(x, y).to_numpy().astype("float64")
+    n = table.sum()
+    h_y = entropy(table.sum(axis=0) / n)
+    h_y_given_x = sum(row.sum() / n * entropy(row / row.sum()) for row in table)
+    return h_y - h_y_given_x
 
 
 def num_summary(s):
@@ -62,11 +66,11 @@ def relation(feature, score, y):
     ok = ~np.isnan(f)
     f, sc, yy = f[ok], sc[ok], yy[ok]
     if np.std(f) == 0:
-        return {"pearson_score": 0.0, "spearman_score": 0.0, "pointbiserial_y": 0.0,
+        return {"pearson_score": 0.0, "spearman_score": 0.0, "pearson_y": 0.0,
                 "mean_if_toxic": float(f[yy == 1].mean()), "mean_if_not": float(f[yy == 0].mean())}
     return {"pearson_score": float(np.corrcoef(f, sc)[0, 1]),
             "spearman_score": float(spearmanr(f, sc).statistic),
-            "pointbiserial_y": float(np.corrcoef(f, yy)[0, 1]),
+            "pearson_y": float(np.corrcoef(f, yy)[0, 1]),
             "mean_if_toxic": float(f[yy == 1].mean()),
             "mean_if_not": float(f[yy == 0].mean())}
 
@@ -158,7 +162,7 @@ for c in stats.columns:
     txt["stats"][c] = {**num_summary(stats[c]), "relation": relation(stats[c], score, y)}
     r = txt["stats"][c]["relation"]
     print(f"{c:<14} median {txt['stats'][c]['median']:>8.2f}  p99 {txt['stats'][c]['p99']:>8.2f}  "
-          f"rho {r['spearman_score']:+.3f}  r_pb {r['pointbiserial_y']:+.3f}  "
+          f"rho {r['spearman_score']:+.3f}  r_y {r['pearson_y']:+.3f}  "
           f"mean toxic {r['mean_if_toxic']:.3f} vs {r['mean_if_not']:.3f}")
 txt["patterns"] = {k: v[1] for k, v in COUNT_PATTERNS.items()}
 # length distribution by class, for the figure
@@ -238,14 +242,14 @@ del sub
 
 # ============================================================================
 banner("6. METADATA (train)")
-meta = {}
+meta = {"label_entropy_bits": entropy(np.bincount(y.astype(int)) / len(y))}
 
 # rating -------------------------------------------------------------------
 r = train["rating"].astype(str)
 meta["rating"] = {"values": {k: int(v) for k, v in r.value_counts().items()},
                   "toxic_rate": {k: float(y[r == k].mean()) for k in r.unique()},
                   "mean_score": {k: float(score[r == k].mean()) for k in r.unique()},
-                  "cramers_v": cramers_v(r, y)}
+                  "info_gain": info_gain(r, y)}
 print("rating", meta["rating"])
 
 # publication_id -------------------------------------------------------------
@@ -256,15 +260,15 @@ meta["publication_id"] = {
     "top10_share_pct": float(pc.head(10).sum() / N * 100),
     "n_with_under_1000_rows": int((pc < 1000).sum()),
     "rows_in_publications_under_1000": int(pc[pc < 1000].sum()),
-    "cramers_v": cramers_v(p, y),
+    "info_gain": info_gain(p, y),
     "per_publication": {int(k): {"n": int(pc[k]), "toxic_rate": float(y[p == k].mean())} for k in pc.index},
     "val_test_publications_not_in_train": sorted(set(val_test["publication_id"].unique().tolist()) - set(pc.index.tolist())),
 }
 rates = pd.Series({k: v["toxic_rate"] for k, v in meta["publication_id"]["per_publication"].items()
                    if v["n"] >= 1000})
 meta["publication_id"]["toxic_rate_range_n_ge_1000"] = [float(rates.min()), float(rates.max())]
-print(f"publication_id: {meta['publication_id']['n_unique']} values, Cramer's V "
-      f"{meta['publication_id']['cramers_v']:.4f}, toxic rate {rates.min():.3%} - {rates.max():.3%} "
+print(f"publication_id: {meta['publication_id']['n_unique']} values, information gain "
+      f"{meta['publication_id']['info_gain']:.4f} bits, toxic rate {rates.min():.3%} - {rates.max():.3%} "
       f"(publications with >= 1000 comments)")
 
 # created_date -----------------------------------------------------------------
@@ -285,11 +289,11 @@ hr = d.dt.hour
 wd = d.dt.dayofweek
 meta["created_date"]["toxic_rate_by_hour_utc"] = {int(k): float(y[hr == k].mean()) for k in range(24)}
 meta["created_date"]["toxic_rate_by_weekday"] = {int(k): float(y[wd == k].mean()) for k in range(7)}
-meta["created_date"]["cramers_v"] = {"year": cramers_v(yr, y), "month": cramers_v(ym, y),
-                                     "hour_utc": cramers_v(hr, y), "weekday": cramers_v(wd, y)}
+meta["created_date"]["info_gain"] = {"year": info_gain(yr, y), "month": info_gain(ym, y),
+                                     "hour_utc": info_gain(hr, y), "weekday": info_gain(wd, y)}
 print("created_date", meta["created_date"]["min"], "->", meta["created_date"]["max"])
 print("   by year", meta["created_date"]["by_year"])
-print("   Cramer's V", meta["created_date"]["cramers_v"])
+print("   information gain (bits)", meta["created_date"]["info_gain"])
 print("   split ranges", meta["created_date"]["range_by_split"])
 
 # parent_id -> is_reply ------------------------------------------------------
@@ -297,7 +301,7 @@ is_reply = train["parent_id"].notna()
 meta["parent_id"] = {"pct_missing": float((~is_reply).mean() * 100),
                      "toxic_rate_reply": float(y[is_reply].mean()),
                      "toxic_rate_top_level": float(y[~is_reply].mean()),
-                     "cramers_v_is_reply": cramers_v(is_reply, y)}
+                     "info_gain_is_reply": info_gain(is_reply, y)}
 all_ids = set(train["id"].tolist()) | set(val_test["id"].tolist())
 parents = train.loc[is_reply, "parent_id"].astype("int64")
 meta["parent_id"]["pct_parents_present_in_data"] = float(parents.isin(all_ids).mean() * 100)

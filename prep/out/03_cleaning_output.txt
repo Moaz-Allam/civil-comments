@@ -8,7 +8,7 @@ B1. duplicate texts inside train collapsed to one row train  1,779,523  val  97,
 B2. train texts that also occur in val/test removed  train  1,777,414  val  97,320  test  97,320
 
 text statistics kept: ['n_words', 'mean_word_len', 'upper_ratio', 'n_caps_words', 'n_exclaim', 'n_question', 'n_punct_runs', 'n_masked', 'n_urls', 'n_digits', 'n_newlines', 'n_upper']
-   dropped n_non_ascii  no association with the label (rho -0.002, r_pb -0.005)
+   dropped n_non_ascii  no association with the label (rho -0.002, r_y -0.005)
    dropped n_chars      redundant with n_words (r = 0.992)
    dropped n_letters    redundant with n_words (r = 0.990)
 

@@ -184,7 +184,7 @@ stats = text_stats(full["text"])
 
 # D1. Which text statistics to keep. Two rules, both computed on train:
 #     redundant  -> |Pearson r| > 0.9 with a statistic already kept
-#     no signal  -> |Spearman rho| < 0.01 AND |point-biserial r| < 0.01
+#     no signal  -> |Spearman rho| < 0.01 AND |Pearson r with y| < 0.01
 #                   with the toxicity label (values from 02_analysis.json)
 CANDIDATES = ["n_words", "mean_word_len", "upper_ratio", "n_caps_words", "n_exclaim",
               "n_question", "n_punct_runs", "n_masked", "n_urls", "n_digits", "n_newlines",
@@ -193,9 +193,9 @@ corr = stats.loc[is_train, CANDIDATES].astype("float64").corr()
 kept, dropped = [], {}
 for c in CANDIDATES:
     rel = A["text"]["stats"][c]["relation"]
-    if abs(rel["spearman_score"]) < 0.01 and abs(rel["pointbiserial_y"]) < 0.01:
+    if abs(rel["spearman_score"]) < 0.01 and abs(rel["pearson_y"]) < 0.01:
         dropped[c] = (f"no association with the label (rho {rel['spearman_score']:+.3f}, "
-                      f"r_pb {rel['pointbiserial_y']:+.3f})")
+                      f"r_y {rel['pearson_y']:+.3f})")
         continue
     twin = next((k for k in kept if abs(corr.loc[c, k]) > 0.9), None)
     if twin:
@@ -256,18 +256,18 @@ M = A["metadata"]
 log["decisions"]["removed_columns"] = {
     "toxicity_annotator_count": "artefact of how comments were sampled for annotation: toxic rate "
                                 "%.2f%% with 3-5 annotators vs %.2f%% with 10-99; unknown when a comment "
-                                "is posted. Kept as n_annotators for sample weighting, never as a feature"
+                                "is posted. Kept as n_annotators for reference, never as a feature"
                                 % (100 * A["annotators"]["toxic_rate_by_annotator_band"]["3-5"]["toxic_rate"],
                                    100 * A["annotators"]["toxic_rate_by_annotator_band"]["10-99"]["toxic_rate"]),
     "identity_annotator_count": "duplicates the identity_annotated flag",
     "rating": "peer-review verdict given after posting, i.e. a second human judgement of the same "
-              "comment (Cramer's V %.3f); kept in the dump as metadata, not a feature" % M["rating"]["cramers_v"],
+              "comment (information gain %.4f bits); kept in the dump as metadata, not a feature" % M["rating"]["info_gain"],
     "funny, wow, sad, likes, disagree": "reader reactions accumulate after posting; |rho| <= %.3f"
                                         % max(abs(M["reactions"][c]["relation"]["spearman_score"])
                                               for c in M["reactions"]),
-    "created_date": "Cramer's V with the label: year %.3f, month %.3f, hour %.3f, weekday %.3f; all splits "
+    "created_date": "information gain with the label (bits): year %.4f, month %.4f, hour %.4f, weekday %.4f; all splits "
                     "span the same dates, and a 2015-2017 calendar does not transfer to new data"
-                    % tuple(M["created_date"]["cramers_v"][k] for k in ["year", "month", "hour_utc", "weekday"]),
+                    % tuple(M["created_date"]["info_gain"][k] for k in ["year", "month", "hour_utc", "weekday"]),
     "parent_id": "replaced by is_reply",
     "article_id": "identifier with %d values and no article shared between train and val/test, so "
                   "a value seen in training never occurs again; dropped" % M["article_id"]["n_unique"],

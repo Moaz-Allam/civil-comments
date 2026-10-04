@@ -4,7 +4,8 @@ cleaning and scaling, on the training split:
 
     1. distribution of every tabular feature before and after its transform
        (skewness, and histograms for the figure) -- the case for scaling
-    2. cross-correlation: Pearson r between every pair of tabular features
+    2. feature-to-feature correlation: Pearson r between every pair of the
+       133 final features (33 tabular + 100 Word2Vec dimensions)
     3. label correlation: Pearson r between every final feature and every
        modelling target -- the tabular features and all 100 Word2Vec dimensions
     4. leakage rule: no feature may reach |r| >= 0.85 with a target. A feature
@@ -80,6 +81,51 @@ print(f"largest |r| between two publication columns {out['cross_corr_publication
       f"between a publication column and another feature {out['cross_corr_publication_vs_core_max']:.3f}")
 
 # ============================================================================
+banner("2b. FEATURE-TO-FEATURE CORRELATION, ALL 133 FINAL FEATURES (train)")
+W = np.load(os.path.join(CLEAN, "w2v", "train.npy"), mmap_mode="r")
+assert W.shape[0] == n
+names = FEATURES + [f"w2v_{i}" for i in range(W.shape[1])]
+k = len(names)
+S1, SXX = np.zeros(k), np.zeros((k, k))
+for s in range(0, n, 200_000):
+    blk = np.hstack([tr[FEATURES].iloc[s:s + 200_000].to_numpy(dtype=np.float64),
+                     np.asarray(W[s:s + 200_000], dtype=np.float64)])
+    S1 += blk.sum(axis=0)
+    SXX += blk.T @ blk
+mu = S1 / n
+cov = SXX / n - np.outer(mu, mu)
+sd = np.sqrt(np.diag(cov))
+RA = cov / np.outer(sd, sd)
+np.fill_diagonal(RA, 1.0)
+nt = len(FEATURES)
+off = np.abs(RA) - np.eye(k)
+
+
+def strongest(block, rows, cols):
+    i, j = np.unravel_index(np.abs(block).argmax(), block.shape)
+    return [rows[i], cols[j], float(block[i, j])]
+
+
+ww = RA[nt:, nt:] - np.eye(k - nt)
+out["cross_corr_all"] = {
+    "n_features": k, "n_tabular": nt, "n_word2vec": k - nt,
+    "max_abs_r_any_pair": float(off.max()),
+    "w2v_vs_w2v": strongest(ww, names[nt:], names[nt:]),
+    "w2v_vs_tabular": strongest(RA[nt:, :nt], names[nt:], names[:nt]),
+    "n_pairs_above_0.9": int((np.triu(off, 1) > 0.9).sum()),
+    "n_pairs_above_0.5": int((np.triu(off, 1) > 0.5).sum()),
+    "n_pairs": k * (k - 1) // 2,
+    "names": names,
+    "matrix": RA.round(3).tolist(),
+}
+ca = out["cross_corr_all"]
+print(f"{k} features, {ca['n_pairs']:,} pairs; largest |r| {ca['max_abs_r_any_pair']:.3f}; "
+      f"pairs above 0.9: {ca['n_pairs_above_0.9']}, above 0.5: {ca['n_pairs_above_0.5']}")
+print("strongest Word2Vec pair:", ca["w2v_vs_w2v"])
+print("strongest Word2Vec / tabular pair:", ca["w2v_vs_tabular"])
+del SXX, cov, RA, off, ww
+
+# ============================================================================
 banner("3. CORRELATION WITH EVERY TARGET")
 
 
@@ -105,8 +151,6 @@ print(f"tabular   max |r| {abs(r_tab[i, j]):.4f}  ({FEATURES[i]} vs {TARGETS[j]}
 del X
 
 # 3b. Word2Vec dimensions
-W = np.load(os.path.join(CLEAN, "w2v", "train.npy"), mmap_mode="r")
-assert W.shape[0] == n
 d = W.shape[1]
 s1, s2, sxy = np.zeros(d), np.zeros(d), np.zeros((d, len(TARGETS)))
 for s in range(0, n, 200_000):

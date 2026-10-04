@@ -79,7 +79,7 @@
         "n_upper"
       ],
       "dropped": {
-        "n_non_ascii": "no association with the label (rho -0.002, r_pb -0.005)",
+        "n_non_ascii": "no association with the label (rho -0.002, r_y -0.005)",
         "n_chars": "redundant with n_words (r = 0.992)",
         "n_letters": "redundant with n_words (r = 0.990)"
       },
@@ -342,11 +342,11 @@
       }
     },
     "removed_columns": {
-      "toxicity_annotator_count": "artefact of how comments were sampled for annotation: toxic rate 0.37% with 3-5 annotators vs 39.84% with 10-99; unknown when a comment is posted. Kept as n_annotators for sample weighting, never as a feature",
+      "toxicity_annotator_count": "artefact of how comments were sampled for annotation: toxic rate 0.37% with 3-5 annotators vs 39.84% with 10-99; unknown when a comment is posted. Kept as n_annotators for reference, never as a feature",
       "identity_annotator_count": "duplicates the identity_annotated flag",
-      "rating": "peer-review verdict given after posting, i.e. a second human judgement of the same comment (Cramer's V 0.177); kept in the dump as metadata, not a feature",
+      "rating": "peer-review verdict given after posting, i.e. a second human judgement of the same comment (information gain 0.0155 bits); kept in the dump as metadata, not a feature",
       "funny, wow, sad, likes, disagree": "reader reactions accumulate after posting; |rho| <= 0.044",
-      "created_date": "Cramer's V with the label: year 0.002, month 0.021, hour 0.017, weekday 0.009; all splits span the same dates, and a 2015-2017 calendar does not transfer to new data",
+      "created_date": "information gain with the label (bits): year 0.0000, month 0.0003, hour 0.0002, weekday 0.0001; all splits span the same dates, and a 2015-2017 calendar does not transfer to new data",
       "parent_id": "replaced by is_reply",
       "article_id": "identifier with 105380 values and no article shared between train and val/test, so a value seen in training never occurs again; dropped",
       "publication_id": "replaced by its one-hot encoding"

@@ -73,21 +73,21 @@ toxic rate by annotator band {'3-5': {'n': 1261806, 'toxic_rate': 0.003672513841
 ========================================================================
 4. TEXT (train, plus overlaps across splits)
 ========================================================================
-n_chars        median   202.00  p99   999.00  rho +0.066  r_pb -0.021  mean toxic 277.613 vs 298.940
-n_words        median    35.00  p99   178.00  rho +0.067  r_pb -0.018  mean toxic 48.387 vs 51.526
-n_letters      median   158.00  p99   796.00  rho +0.066  r_pb -0.022  mean toxic 218.337 vs 235.278
-n_upper        median     5.00  p99    46.00  rho +0.059  r_pb +0.005  mean toxic 8.985 vs 8.783
-n_caps_words   median     0.00  p99     5.00  rho +0.027  r_pb +0.016  mean toxic 0.540 vs 0.437
-n_exclaim      median     0.00  p99     4.00  rho +0.049  r_pb +0.042  mean toxic 0.370 vs 0.212
-n_question     median     0.00  p99     4.00  rho +0.022  r_pb +0.005  mean toxic 0.453 vs 0.435
-n_punct_runs   median     0.00  p99     1.00  rho +0.039  r_pb +0.033  mean toxic 0.070 vs 0.039
-n_masked       median     0.00  p99     0.00  rho +0.053  r_pb +0.050  mean toxic 0.011 vs 0.001
-n_urls         median     0.00  p99     2.00  rho -0.035  r_pb -0.024  mean toxic 0.026 vs 0.058
-n_digits       median     0.00  p99    18.00  rho -0.051  r_pb -0.044  mean toxic 0.703 vs 1.351
-n_newlines     median     0.00  p99    11.00  rho +0.027  r_pb -0.010  mean toxic 1.036 vs 1.124
-n_non_ascii    median     0.00  p99     4.00  rho -0.002  r_pb -0.005  mean toxic 0.120 vs 0.180
-upper_ratio    median     0.03  p99     0.25  rho -0.016  r_pb +0.001  mean toxic 0.048 vs 0.048
-mean_word_len  median     5.71  p99    10.00  rho +0.012  r_pb -0.014  mean toxic 5.779 vs 5.983
+n_chars        median   202.00  p99   999.00  rho +0.066  r_y -0.021  mean toxic 277.613 vs 298.940
+n_words        median    35.00  p99   178.00  rho +0.067  r_y -0.018  mean toxic 48.387 vs 51.526
+n_letters      median   158.00  p99   796.00  rho +0.066  r_y -0.022  mean toxic 218.337 vs 235.278
+n_upper        median     5.00  p99    46.00  rho +0.059  r_y +0.005  mean toxic 8.985 vs 8.783
+n_caps_words   median     0.00  p99     5.00  rho +0.027  r_y +0.016  mean toxic 0.540 vs 0.437
+n_exclaim      median     0.00  p99     4.00  rho +0.049  r_y +0.042  mean toxic 0.370 vs 0.212
+n_question     median     0.00  p99     4.00  rho +0.022  r_y +0.005  mean toxic 0.453 vs 0.435
+n_punct_runs   median     0.00  p99     1.00  rho +0.039  r_y +0.033  mean toxic 0.070 vs 0.039
+n_masked       median     0.00  p99     0.00  rho +0.053  r_y +0.050  mean toxic 0.011 vs 0.001
+n_urls         median     0.00  p99     2.00  rho -0.035  r_y -0.024  mean toxic 0.026 vs 0.058
+n_digits       median     0.00  p99    18.00  rho -0.051  r_y -0.044  mean toxic 0.703 vs 1.351
+n_newlines     median     0.00  p99    11.00  rho +0.027  r_y -0.010  mean toxic 1.036 vs 1.124
+n_non_ascii    median     0.00  p99     4.00  rho -0.002  r_y -0.005  mean toxic 0.120 vs 0.180
+upper_ratio    median     0.03  p99     0.25  rho -0.016  r_y +0.001  mean toxic 0.048 vs 0.048
+mean_word_len  median     5.71  p99    10.00  rho +0.012  r_y -0.014  mean toxic 5.779 vs 5.983
 duplicate texts: 10,180 distinct strings cover 34,231 rows (24,051 redundant); 596 of them disagree on y
 most repeated: [{'text': 'Well said.', 'count': 184}, {'text': 'No.', 'count': 160}, {'text': 'Exactly.', 'count': 132}, {'text': 'Yes.', 'count': 127}, {'text': 'Thank you.', 'count': 120}]
 validation/test rows whose exact text is also in train: {'validation': 1522, 'test': 1554}
@@ -126,13 +126,13 @@ annotated rows 405,130 (22.45%); toxic rate 11.36% overall, 16.42% when any iden
 ========================================================================
 6. METADATA (train)
 ========================================================================
-rating {'values': {'approved': 1684758, 'rejected': 120116}, 'toxic_rate': {'rejected': 0.2597905358153785, 'approved': 0.06714851628542497}, 'mean_score': {'rejected': 0.25787752866744995, 'approved': 0.09197642654180527}, 'cramers_v': 0.17701546983593766}
-publication_id: 53 values, Cramer's V 0.0674, toxic rate 1.464% - 16.312% (publications with >= 1000 comments)
+rating {'values': {'approved': 1684758, 'rejected': 120116}, 'toxic_rate': {'rejected': 0.2597905358153785, 'approved': 0.06714851628542497}, 'mean_score': {'rejected': 0.25787752866744995, 'approved': 0.09197642654180527}, 'info_gain': np.float64(0.0155174133298015)}
+publication_id: 53 values, information gain 0.0031 bits, toxic rate 1.464% - 16.312% (publications with >= 1000 comments)
 created_date 2015-09-29 10:50:41.987077+00:00 -> 2017-11-11 01:01:10.822969+00:00
    by year {2015: {'n': 651, 'toxic_rate': 0.05222734254992319}, 2016: {'n': 433954, 'toxic_rate': 0.07938399000815755}, 2017: {'n': 1370269, 'toxic_rate': 0.08016747076668887}}
-   Cramer's V {'year': 0.002301688368878255, 'month': 0.021041309321923413, 'hour_utc': 0.01712546238240069, 'weekday': 0.008963737542864518}
+   information gain (bits) {'year': np.float64(4.174407864876439e-06), 'month': np.float64(0.0003292997314994772), 'hour_utc': np.float64(0.00020975445220067224), 'weekday': np.float64(5.741401119913059e-05)}
    split ranges {'train': ['2015-09-29 10:50:41.987077+00:00', '2017-11-11 01:01:10.822969+00:00'], 'validation': ['2015-09-29 16:28:42.346126+00:00', '2017-11-11 00:55:27.310248+00:00'], 'test': ['2015-09-29 16:20:53.059406+00:00', '2017-11-11 00:58:26.909716+00:00']}
-parent_id {'pct_missing': 43.14129407371373, 'toxic_rate_reply': 0.07522792206020494, 'toxic_rate_top_level': 0.08621761365241715, 'cramers_v_is_reply': 0.02006635395782958, 'pct_parents_present_in_data': 97.97978616837584}
+parent_id {'pct_missing': 43.14129407371373, 'toxic_rate_reply': 0.07522792206020494, 'toxic_rate_top_level': 0.08621761365241715, 'info_gain_is_reply': np.float64(0.00028900816399035634), 'pct_parents_present_in_data': 97.97978616837584}
 article_id {'n_unique': 105380, 'spearman_thread_size_vs_score': 0.055050691456092815, 'articles_shared_with_val_test': 0}
 funny     zero  85.87%  p99    4.0  max     102  skew   11.8  rho +0.006
 wow       zero  96.21%  p99    1.0  max      21  skew    8.2  rho +0.016

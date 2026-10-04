@@ -821,7 +821,7 @@
       "relation": {
         "pearson_score": 0.23659668798610534,
         "spearman_score": 0.9132459739258515,
-        "pointbiserial_y": 0.20658882479661603,
+        "pearson_y": 0.20658882479661603,
         "mean_if_toxic": 39.26679784388987,
         "mean_if_not": 6.1351921664037
       },
@@ -854,7 +854,7 @@
       "relation": {
         "pearson_score": 0.02475117360748984,
         "spearman_score": 0.12270951457044178,
-        "pointbiserial_y": 0.016687474453039062,
+        "pearson_y": 0.016687474453039062,
         "mean_if_toxic": 2.450517549572519,
         "mean_if_not": 1.3510996422850399
       },
@@ -908,7 +908,7 @@
         "relation": {
           "pearson_score": 0.006444277002567033,
           "spearman_score": 0.06569640581749707,
-          "pointbiserial_y": -0.021488838657668773,
+          "pearson_y": -0.021488838657668773,
           "mean_if_toxic": 277.61325120900136,
           "mean_if_not": 298.93978886386355
         }
@@ -929,7 +929,7 @@
         "relation": {
           "pearson_score": 0.009584034410353019,
           "spearman_score": 0.06724064337403525,
-          "pointbiserial_y": -0.018439238021243386,
+          "pearson_y": -0.018439238021243386,
           "mean_if_toxic": 48.38737234470049,
           "mean_if_not": 51.526449829573515
         }
@@ -950,7 +950,7 @@
         "relation": {
           "pearson_score": 0.00653245795596649,
           "spearman_score": 0.06646726244175642,
-          "pointbiserial_y": -0.02161605762398133,
+          "pearson_y": -0.02161605762398133,
           "mean_if_toxic": 218.33665664361828,
           "mean_if_not": 235.2776554614764
         }
@@ -971,7 +971,7 @@
         "relation": {
           "pearson_score": 0.026146433681313596,
           "spearman_score": 0.05854616808553189,
-          "pointbiserial_y": 0.0045177186654634955,
+          "pearson_y": 0.0045177186654634955,
           "mean_if_toxic": 8.985478127121814,
           "mean_if_not": 8.782676719621328
         }
@@ -992,7 +992,7 @@
         "relation": {
           "pearson_score": 0.02603183294702181,
           "spearman_score": 0.027407788212745865,
-          "pointbiserial_y": 0.016069586652007428,
+          "pearson_y": 0.016069586652007428,
           "mean_if_toxic": 0.5404478501254035,
           "mean_if_not": 0.4371210570055524
         }
@@ -1013,7 +1013,7 @@
         "relation": {
           "pearson_score": 0.055151727227917266,
           "spearman_score": 0.049442600300677056,
-          "pointbiserial_y": 0.04186112379825481,
+          "pearson_y": 0.04186112379825481,
           "mean_if_toxic": 0.37014840578103564,
           "mean_if_not": 0.21241463620268106
         }
@@ -1034,7 +1034,7 @@
         "relation": {
           "pearson_score": 0.019308056505461153,
           "spearman_score": 0.02158457566822054,
-          "pointbiserial_y": 0.005109204515889706,
+          "pearson_y": 0.005109204515889706,
           "mean_if_toxic": 0.4531434034946721,
           "mean_if_not": 0.43462367663531143
         }
@@ -1055,7 +1055,7 @@
         "relation": {
           "pearson_score": 0.04473171972565954,
           "spearman_score": 0.03925273125324401,
-          "pointbiserial_y": 0.03270178280609688,
+          "pearson_y": 0.03270178280609688,
           "mean_if_toxic": 0.06989344160073163,
           "mean_if_not": 0.03869163043347345
         }
@@ -1076,7 +1076,7 @@
         "relation": {
           "pearson_score": 0.05579268099201385,
           "spearman_score": 0.05253613735212166,
-          "pointbiserial_y": 0.04969607758196826,
+          "pearson_y": 0.04969607758196826,
           "mean_if_toxic": 0.011494173237075118,
           "mean_if_not": 0.0014152022835944933
         }
@@ -1097,7 +1097,7 @@
         "relation": {
           "pearson_score": -0.030785037737472164,
           "spearman_score": -0.03531460901434391,
-          "pointbiserial_y": -0.023602437078426956,
+          "pearson_y": -0.023602437078426956,
           "mean_if_toxic": 0.0257458395111339,
           "mean_if_not": 0.058034133474652826
         }
@@ -1118,7 +1118,7 @@
         "relation": {
           "pearson_score": -0.05498913301087968,
           "spearman_score": -0.05098102721894032,
-          "pointbiserial_y": -0.04440260683266097,
+          "pearson_y": -0.04440260683266097,
           "mean_if_toxic": 0.7030706555627919,
           "mean_if_not": 1.351342334421333
         }
@@ -1139,7 +1139,7 @@
         "relation": {
           "pearson_score": 0.006465466664360079,
           "spearman_score": 0.027023873545814342,
-          "pointbiserial_y": -0.01004928600955773,
+          "pearson_y": -0.01004928600955773,
           "mean_if_toxic": 1.0359513350977594,
           "mean_if_not": 1.12361761836511
         }
@@ -1160,7 +1160,7 @@
         "relation": {
           "pearson_score": -0.00657629309281102,
           "spearman_score": -0.002158384513672553,
-          "pointbiserial_y": -0.004781746183029191,
+          "pearson_y": -0.004781746183029191,
           "mean_if_toxic": 0.12040129144900023,
           "mean_if_not": 0.17998301757259685
         }
@@ -1181,7 +1181,7 @@
         "relation": {
           "pearson_score": -0.007314503638984862,
           "spearman_score": -0.015881816439215046,
-          "pointbiserial_y": 0.0006140344808382553,
+          "pearson_y": 0.0006140344808382553,
           "mean_if_toxic": 0.04804716645110623,
           "mean_if_not": 0.04790434690899704
         }
@@ -1202,7 +1202,7 @@
         "relation": {
           "pearson_score": -0.019662694938232375,
           "spearman_score": 0.011725633002482187,
-          "pointbiserial_y": -0.01404551493760607,
+          "pearson_y": -0.01404551493760607,
           "mean_if_toxic": 5.779409598112883,
           "mean_if_not": 5.982598240938247
         }
@@ -1576,6 +1576,7 @@
     }
   },
   "metadata": {
+    "label_entropy_bits": 0.40207001107551443,
     "rating": {
       "values": {
         "approved": 1684758,
@@ -1589,14 +1590,14 @@
         "rejected": 0.25787752866744995,
         "approved": 0.09197642654180527
       },
-      "cramers_v": 0.17701546983593766
+      "info_gain": 0.0155174133298015
     },
     "publication_id": {
       "n_unique": 53,
       "top10_share_pct": 97.86239925889564,
       "n_with_under_1000_rows": 34,
       "rows_in_publications_under_1000": 6562,
-      "cramers_v": 0.0673681787240791,
+      "info_gain": 0.0031227773158530314,
       "per_publication": {
         "54": {
           "n": 627278,
@@ -1993,18 +1994,18 @@
         "5": 0.08306208671808694,
         "6": 0.08528092851490372
       },
-      "cramers_v": {
-        "year": 0.002301688368878255,
-        "month": 0.021041309321923413,
-        "hour_utc": 0.01712546238240069,
-        "weekday": 0.008963737542864518
+      "info_gain": {
+        "year": 4.174407864876439e-06,
+        "month": 0.0003292997314994772,
+        "hour_utc": 0.00020975445220067224,
+        "weekday": 5.741401119913059e-05
       }
     },
     "parent_id": {
       "pct_missing": 43.14129407371373,
       "toxic_rate_reply": 0.07522792206020494,
       "toxic_rate_top_level": 0.08621761365241715,
-      "cramers_v_is_reply": 0.02006635395782958,
+      "info_gain_is_reply": 0.00028900816399035634,
       "pct_parents_present_in_data": 97.97978616837584
     },
     "article_id": {
@@ -2043,7 +2044,7 @@
         "relation": {
           "pearson_score": -0.0074053710583211205,
           "spearman_score": 0.00608331462526102,
-          "pointbiserial_y": -0.008302256370998223,
+          "pearson_y": -0.008302256370998223,
           "mean_if_toxic": 0.2482090152008536,
           "mean_if_not": 0.2805099545930842
         },
@@ -2066,7 +2067,7 @@
         "relation": {
           "pearson_score": 0.012390426338336516,
           "spearman_score": 0.0155292461045383,
-          "pointbiserial_y": 0.007042119694399096,
+          "pearson_y": 0.007042119694399096,
           "mean_if_toxic": 0.0500575055080577,
           "mean_if_not": 0.04369843544870946
         },
@@ -2089,7 +2090,7 @@
         "relation": {
           "pearson_score": 0.018012686290870203,
           "spearman_score": 0.025813287924171605,
-          "pointbiserial_y": 0.008383613463928892,
+          "pearson_y": 0.008383613463928892,
           "mean_if_toxic": 0.12207102969501296,
           "mean_if_not": 0.10799137629927615
         },
@@ -2112,7 +2113,7 @@
         "relation": {
           "pearson_score": 0.019145595291583897,
           "spearman_score": 0.019757330894407163,
-          "pointbiserial_y": 0.006175907925889733,
+          "pearson_y": 0.006175907925889733,
           "mean_if_toxic": 2.5452076433827093,
           "mean_if_not": 2.4375588663928602
         },
@@ -2135,7 +2136,7 @@
         "relation": {
           "pearson_score": 0.024574771296421605,
           "spearman_score": 0.04382551856328505,
-          "pointbiserial_y": 0.010699907785993648,
+          "pearson_y": 0.010699907785993648,
           "mean_if_toxic": 0.6521124613743123,
           "mean_if_not": 0.5784804942970359
         },

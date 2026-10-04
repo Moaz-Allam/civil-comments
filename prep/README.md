@@ -24,7 +24,7 @@ memory and work in chunks so they fit in that.
 | `02_feature_analysis.py` | Type, missing values, unique values, distribution and label relation of every column (train only) | `out/02_analysis.json` |
 | `03_clean_preprocess.py` | Text cleaning, duplicate and leakage removal (train only), labels, feature selection, encoding and scaling | `data/clean/*.parquet`, `data/clean/preprocessing_params.json`, `out/03_cleaning.json` |
 | `04_word2vec.py` | Skip-gram Word2Vec trained on train; mean-pooled, standardised document vectors | `data/clean/w2v/`, `out/04_word2vec.json` |
-| `05_correlation_checks.py` | Distributions before/after scaling, feature cross-correlation, correlation of every final feature with every target; fails if any reaches abs(r) >= 0.85 | `out/05_correlations.json` |
+| `05_correlation_checks.py` | Distributions before/after scaling, feature-to-feature correlation of all 133 final features, correlation of every final feature with every target; fails if any reaches abs(r) >= 0.85 | `out/05_correlations.json` |
 | `06_make_figures.py` | All report figures | `figures/*.png` |
 | `common.py`, `textfeat.py` | Paths, column groups, the 15 text statistics | |
 | `build_report.js` | Writes the report .docx from `out/` and `figures/` (`npm install docx`, then `node prep/build_report.js`) | |
@@ -47,7 +47,7 @@ Parquet columns:
 
 - `id`, `text` (cleaned, case kept), `text_bow` (normalised, the Word2Vec input)
 - seven scores (`toxicity` ... `sexual_explicit`) and seven 0/1 labels `y_*` at 0.5; targets are the six without `severe_toxicity`
-- `n_annotators`: sample weight only, never an input
+- `n_annotators`: kept for reference, never an input
 - `f_*`: the 33 scaled tabular input features (12 text statistics, `f_is_reply`, 20 publication one-hot columns)
 - `identity_annotated` + 24 identity scores (NaN when not annotated): bias audit only, never inputs
 - `publication_id`, `created_date`, `rating`: metadata, never inputs

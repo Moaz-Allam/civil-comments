@@ -112,8 +112,8 @@ save(fig, "fig3_length_by_class.png")
 # ---------------------------------------------------------------- Fig 4: text statistics vs label
 st = A["text"]["stats"]
 kept = set(C["decisions"]["text_stats"]["kept"])
-items = sorted(st, key=lambda c: st[c]["relation"]["pointbiserial_y"])
-vals = [st[c]["relation"]["pointbiserial_y"] for c in items]
+items = sorted(st, key=lambda c: st[c]["relation"]["pearson_y"])
+vals = [st[c]["relation"]["pearson_y"] for c in items]
 fig, ax = plt.subplots(figsize=(W, 2.6))
 colors = [BLUE if c in kept else "#c9c8c4" for c in items]
 ax.barh(range(len(items)), vals, height=0.62, color=colors, zorder=3)
@@ -125,7 +125,7 @@ for i, v in enumerate(vals):
             ha="left" if v >= 0 else "right", fontsize=6.1, color=INK)
 lim = max(abs(min(vals)), abs(max(vals))) * 1.45
 ax.set_xlim(-lim, lim)
-ax.set_xlabel("point-biserial correlation with toxic (train)")
+ax.set_xlabel("Pearson r with the toxic label (train)")
 ax.tick_params(axis="y", length=0)
 tidy(ax, "x")
 ax.spines["left"].set_visible(False)
@@ -196,6 +196,32 @@ cb = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.03)
 cb.outline.set_visible(False)
 cb.ax.tick_params(labelsize=6, length=0)
 save(fig, "fig9_feature_cross_correlation.png")
+
+# ---------------------------------------------------------------- Fig 11: all 133 features
+CA = K["cross_corr_all"]
+RA = np.array(CA["matrix"])
+nt = CA["n_tabular"]
+n_stats = sum(1 for f in CA["names"][:nt] if not f.startswith("f_pub_") and f != "f_is_reply")
+cuts = [n_stats, n_stats + 1, nt]
+fig, ax = plt.subplots(figsize=(W, 3.0))
+im = ax.imshow(RA, cmap=div, vmin=-1, vmax=1, interpolation="nearest")
+for c in cuts:
+    ax.axhline(c - 0.5, color=INK, linewidth=0.5)
+    ax.axvline(c - 0.5, color=INK, linewidth=0.5)
+edges = [0] + cuts + [len(RA)]
+labels = [f"text stats ({n_stats})", "reply", f"publication ({nt - n_stats - 1})", f"Word2Vec ({len(RA) - nt})"]
+mids = [(a + b - 1) / 2 for a, b in zip(edges[:-1], edges[1:])]
+ax.set_xticks([])
+ax.set_xlabel("columns in the same order as the rows", fontsize=6)
+ax.set_yticks(mids)
+ax.set_yticklabels(labels, fontsize=6)
+ax.tick_params(length=0)
+for s_ in ax.spines.values():
+    s_.set_visible(False)
+cb = fig.colorbar(im, ax=ax, fraction=0.04, pad=0.03)
+cb.outline.set_visible(False)
+cb.ax.tick_params(labelsize=6, length=0)
+save(fig, "fig11_all_feature_correlation.png")
 
 # ---------------------------------------------------------------- Fig 10: feature x target correlation
 targets = K["targets"]
