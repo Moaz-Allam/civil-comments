@@ -4,6 +4,7 @@ Snapshot of the work, including what is still running. Numbers below are read fr
 
 ## Finished
 
+- All four non-tree models on Word2Vec, all 6 labels.
 - Shared code: `common/evaluate.py`, `common/sample.py`, `common/data.py`.
 - Doc2Vec script: `prep/07_doc2vec.py`, tested on 50,000 comments.
 - Model scripts: `linear_regression`, `logistic_regression`, `perceptron`, `naive_bayes`, `decision_tree_id3`, `decision_tree_cart` (in `models/`).
@@ -14,13 +15,12 @@ Snapshot of the work, including what is still running. Numbers below are read fr
 | Model | Features | Labels done | F1 | Precision | Recall | ROC-AUC |
 | --- | --- | --- | --- | --- | --- | --- |
 | linear_regression | word2vec | 6 of 6 | 0.335 | 0.216 | 0.746 | 0.838 |
-| logistic_regression | word2vec | 2 of 6 | 0.352 | 0.229 | 0.763 | 0.849 |
+| logistic_regression | word2vec | 6 of 6 | 0.352 | 0.229 | 0.763 | 0.849 |
 | naive_bayes | word2vec | 6 of 6 | 0.281 | 0.176 | 0.703 | 0.766 |
 | perceptron | word2vec | 6 of 6 | 0.264 | 0.158 | 0.802 | 0.797 |
 
 ## Still running on Moaz's laptop
 
-- Logistic regression on Word2Vec: the remaining labels.
 - Doc2Vec full run, about 45 minutes. Not finished, so there are no Doc2Vec results yet.
 - When Doc2Vec finishes, `models/after_doc2vec.sh` runs the four non-tree models on it automatically.
 
