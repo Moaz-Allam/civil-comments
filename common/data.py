@@ -27,7 +27,7 @@ os.makedirs(OUTPUTS, exist_ok=True)
 TARGETS = ["toxicity", "insult", "identity_attack", "obscene", "threat", "sexual_explicit"]
 SPLITS = ["train", "validation", "test"]
 TEXT_DIR = {"word2vec": "w2v", "doc2vec": "doc2vec", "doc2vec_dbow": "doc2vec_dbow"}
-FEATURE_SETS = ["word2vec", "doc2vec"]      # the default runs; doc2vec_dbow is asked for by name
+FEATURE_SETS = ["word2vec", "doc2vec_dbow"]      # the default runs; PV-DM (doc2vec) was weaker
 CHUNK = 100_000
 EVAL_TRAIN_ROWS = 300_000          # training metrics are read on a sample of this size
 
