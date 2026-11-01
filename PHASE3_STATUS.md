@@ -45,10 +45,10 @@ All jobs on Moaz's laptop are finished.
 
 ## To run on Kareem's laptop
 
-ID3 and CART need all 1.78M rows in RAM, so they have no results yet. Everything they need is ready.
+ID3 and CART need all 1.78M rows in RAM, so they have no results yet. They run on Word2Vec and PV-DBOW, the two best text features.
 
 1. Pull this repository.
-2. Copy into `data/clean/`: `train.parquet`, `validation.parquet`, `test.parquet`, `preprocessing_params.json`, `w2v/train.npy`, `w2v/validation.npy`, `w2v/test.npy`, and `doc2vec/train.npy`, `doc2vec/validation.npy`, `doc2vec/test.npy`. Moaz has to upload the three Doc2Vec files first, because they are not on Drive yet.
+2. Copy into `data/clean/`: `train.parquet`, `validation.parquet`, `test.parquet`, `preprocessing_params.json`, `w2v/train.npy`, `w2v/validation.npy`, `w2v/test.npy`, and `doc2vec_dbow/train.npy`, `doc2vec_dbow/validation.npy`, `doc2vec_dbow/test.npy`. Moaz has to upload the three PV-DBOW files first, because they are not on Drive yet.
 3. Install: `pip3 install numpy pandas pyarrow scikit-learn`
 4. From the project folder, run `bash models/run_trees.sh`. If memory runs out, use `JOBS=3 bash models/run_trees.sh`.
 5. Send back `outputs/decision_tree_*.json`.
@@ -59,6 +59,7 @@ Run time on the full data is not measured yet. Finished results are skipped, so 
 
 - Result files are named `outputs/<model>_<features>_<label>.json`, because each model runs on two feature sets.
 - Doc2Vec vectors are inferred for all three splits, including training.
+- Both Doc2Vec modes were run. PV-DBOW replaces PV-DM for the remaining models.
 - Logistic regression picks `C` on a 200,000-row sample, then refits on all rows, instead of a 5-fold search.
 - Trees use balanced class weights, like the other models, and pick depth on a 200,000-row sample.
 - Linear regression and Naive Bayes each also try one balancing option, kept if validation F1 is better.
@@ -67,4 +68,4 @@ Run time on the full data is not measured yet. Finished results are skipped, so 
 ## Open points
 
 - F1 is low on the rare labels. Models use the default decision cut, and balanced weights favour recall.
-- The handout tabs for Kareem's 6 models are not run yet.
+- Kareem's 6 models are not run yet. They should use the same two feature sets, Word2Vec and PV-DBOW.
