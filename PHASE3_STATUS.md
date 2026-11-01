@@ -1,35 +1,42 @@
 # Phase 3 status: Moaz's part
 
-Snapshot of the work, including what is still running. Numbers below are read from `outputs/*.json` (validation split, `toxicity` label). The full metrics for every result, including test, are in `outputs/summary.csv`.
+Numbers below are read from `outputs/*.json` (validation split, `toxicity` label). The full metrics for every result, including test, are in `outputs/summary.csv`.
 
 ## Finished
 
-- All four non-tree models on Word2Vec, all 6 labels.
+- All four non-tree models on both feature sets, all 6 labels.
 - Shared code: `common/evaluate.py`, `common/sample.py`, `common/data.py`.
-- Doc2Vec script: `prep/07_doc2vec.py`, tested on 50,000 comments.
+- Doc2Vec: `prep/07_doc2vec.py`, full run finished. Vectors are in `data/clean/doc2vec/`.
 - Model scripts: `linear_regression`, `logistic_regression`, `perceptron`, `naive_bayes`, `decision_tree_id3`, `decision_tree_cart` (in `models/`).
 - Results merge: `models/summarize.py`.
 
-## Results so far (Word2Vec features)
+## Results so far
 
 | Model | Features | Labels done | F1 | Precision | Recall | ROC-AUC |
 | --- | --- | --- | --- | --- | --- | --- |
+| linear_regression | doc2vec | 6 of 6 | 0.312 | 0.198 | 0.731 | 0.810 |
 | linear_regression | word2vec | 6 of 6 | 0.335 | 0.216 | 0.746 | 0.838 |
+| logistic_regression | doc2vec | 6 of 6 | 0.313 | 0.199 | 0.730 | 0.812 |
 | logistic_regression | word2vec | 6 of 6 | 0.352 | 0.229 | 0.763 | 0.849 |
+| naive_bayes | doc2vec | 6 of 6 | 0.203 | 0.122 | 0.610 | 0.663 |
 | naive_bayes | word2vec | 6 of 6 | 0.281 | 0.176 | 0.703 | 0.766 |
+| perceptron | doc2vec | 6 of 6 | 0.227 | 0.139 | 0.626 | 0.699 |
 | perceptron | word2vec | 6 of 6 | 0.264 | 0.158 | 0.802 | 0.797 |
 
-## Still running on Moaz's laptop
+## Doc2Vec vs Word2Vec
 
-- Doc2Vec full run, about 45 minutes. Not finished, so there are no Doc2Vec results yet.
-- When Doc2Vec finishes, `models/after_doc2vec.sh` runs the four non-tree models on it automatically.
+Word2Vec beats Doc2Vec on all four models. Best toxicity F1 is 0.352 against 0.313, and mean ROC-AUC over the 24 results of each feature set is 0.855 against 0.801. Doc2Vec is the PV-DM version; it passes the leakage rule (largest |r| 0.107).
+
+## Nothing is running now
+
+All jobs on Moaz's laptop are finished.
 
 ## To run on Kareem's laptop
 
-ID3 and CART need all 1.78M rows in RAM, so they have no results yet. Wait until Doc2Vec is finished, because the run covers both feature sets.
+ID3 and CART need all 1.78M rows in RAM, so they have no results yet. Everything they need is ready.
 
 1. Pull this repository.
-2. Copy into `data/clean/`: `train.parquet`, `validation.parquet`, `test.parquet`, `preprocessing_params.json`, `w2v/`, and `doc2vec/` (the `.npy` files).
+2. Copy into `data/clean/`: `train.parquet`, `validation.parquet`, `test.parquet`, `preprocessing_params.json`, `w2v/train.npy`, `w2v/validation.npy`, `w2v/test.npy`, and `doc2vec/train.npy`, `doc2vec/validation.npy`, `doc2vec/test.npy`. Moaz has to upload the three Doc2Vec files first, because they are not on Drive yet.
 3. Install: `pip3 install numpy pandas pyarrow scikit-learn`
 4. From the project folder, run `bash models/run_trees.sh`. If memory runs out, use `JOBS=3 bash models/run_trees.sh`.
 5. Send back `outputs/decision_tree_*.json`.

@@ -1,7 +1,8 @@
 #!/bin/bash
 # ID3 and CART on every training row, for the 16 GB laptop. Run from the project folder:
 #     bash models/run_trees.sh
-# Needs: data/clean/*.parquet, preprocessing_params.json, w2v/ and doc2vec/ (the .npy files).
+# Needs in data/clean: the 3 parquet files, preprocessing_params.json, and train/validation/test.npy
+# in both w2v/ and doc2vec/.
 # Finished results are skipped, so it is safe to stop it and run it again.
 # Lower JOBS if the laptop runs out of memory.
 set -e

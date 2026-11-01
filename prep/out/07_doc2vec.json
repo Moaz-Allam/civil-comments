@@ -1,0 +1,99 @@
+{
+  "settings": {
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 5,
+    "negative": 5,
+    "epochs": 20,
+    "dm": 1,
+    "seed": 42,
+    "workers": 14,
+    "limit": null,
+    "scaling": "z-score per dimension, train statistics"
+  },
+  "corpus_seconds": 9,
+  "train_seconds": 830,
+  "vocabulary_size": 82725,
+  "corpus_words": 93291834,
+  "neighbours": {
+    "idiot": [
+      [
+        "imbecile",
+        0.815
+      ],
+      [
+        "moron",
+        0.74
+      ],
+      [
+        "ignoramus",
+        0.708
+      ],
+      [
+        "idjit",
+        0.699
+      ],
+      [
+        "buffoon",
+        0.666
+      ]
+    ],
+    "stupid": [
+      [
+        "dumb",
+        0.863
+      ],
+      [
+        "foolish",
+        0.83
+      ],
+      [
+        "irresponsible",
+        0.727
+      ],
+      [
+        "naive",
+        0.72
+      ],
+      [
+        "ignorant",
+        0.714
+      ]
+    ],
+    "thanks": [
+      [
+        "thank",
+        0.856
+      ],
+      [
+        "mahalo",
+        0.831
+      ],
+      [
+        "kudos",
+        0.755
+      ],
+      [
+        "bravo",
+        0.721
+      ],
+      [
+        "thx",
+        0.691
+      ]
+    ]
+  },
+  "infer_seconds": 822,
+  "infer_comments_per_second": 2399,
+  "stored_vs_inferred": {
+    "mean_cosine": 0.8718736171722412,
+    "mean_norm_stored": 3.6833276748657227,
+    "mean_norm_inferred": 4.957432270050049
+  },
+  "leakage": {
+    "max_abs_r": 0.10682659477912058,
+    "dimension": 67,
+    "target": "toxicity",
+    "passes": true
+  }
+}
