@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 5,
+    "negative": 5,
+    "epochs": 20,
+    "dm": 0,
+    "seed": 42,
+    "workers": 14,
+    "limit": null,
+    "scaling": "z-score per dimension, train statistics"
+  },
+  "corpus_seconds": 6,
+  "train_seconds": 779,
+  "vocabulary_size": 82725,
+  "corpus_words": 93291834,
+  "infer_seconds": 354,
+  "infer_comments_per_second": 5576,
+  "stored_vs_inferred": {
+    "mean_cosine": 0.9430185556411743,
+    "mean_norm_stored": 2.47189998626709,
+    "mean_norm_inferred": 2.676607847213745
+  },
+  "leakage": {
+    "max_abs_r": 0.1118279139461062,
+    "dimension": 74,
+    "target": "toxicity",
+    "passes": true
+  }
+}

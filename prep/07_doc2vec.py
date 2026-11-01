@@ -18,6 +18,7 @@ Output
     prep/out/07_doc2vec.json             settings, timings, checks
 
 Run:  python prep/07_doc2vec.py                     (full run)
+      python prep/07_doc2vec.py --dm 0 --out doc2vec_dbow      (PV-DBOW, the other Doc2Vec mode)
       python prep/07_doc2vec.py --limit 50000 --epochs 2 --out doc2vec_smoke
 """
 import argparse
@@ -134,9 +135,10 @@ def main():
     res["vocabulary_size"] = len(model.wv)
     res["corpus_words"] = int(model.corpus_total_words)
     print(f"vocabulary {len(model.wv):,} words, {model.corpus_total_words:,} tokens, {res['train_seconds']}s", flush=True)
-    res["neighbours"] = {w: [[n, round(float(s), 3)] for n, s in model.wv.most_similar(w, topn=5)]
-                         for w in ["idiot", "stupid", "thanks"] if w in model.wv.key_to_index}
-    print(res["neighbours"], flush=True)
+    if a.dm == 1:                  # PV-DBOW does not train word vectors, so it has no word neighbours
+        res["neighbours"] = {w: [[n, round(float(s), 3)] for n, s in model.wv.most_similar(w, topn=5)]
+                             for w in ["idiot", "stupid", "thanks"] if w in model.wv.key_to_index}
+        print(res["neighbours"], flush=True)
     stored_sample = np.array(model.dv.vectors[:2000], dtype=np.float32)
     model_path = os.path.join(OUT, "doc2vec.model")
     model.save(model_path, separately=["vectors", "syn1neg"])

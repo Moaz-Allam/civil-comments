@@ -4,9 +4,9 @@ Numbers below are read from `outputs/*.json` (validation split, `toxicity` label
 
 ## Finished
 
-- All four non-tree models on both feature sets, all 6 labels.
+- All four non-tree models on all three feature sets, all 6 labels: 72 results.
 - Shared code: `common/evaluate.py`, `common/sample.py`, `common/data.py`.
-- Doc2Vec: `prep/07_doc2vec.py`, full run finished. Vectors are in `data/clean/doc2vec/`.
+- Doc2Vec: `prep/07_doc2vec.py`, both modes finished. Vectors are in `data/clean/doc2vec/` (PV-DM) and `data/clean/doc2vec_dbow/` (PV-DBOW).
 - Model scripts: `linear_regression`, `logistic_regression`, `perceptron`, `naive_bayes`, `decision_tree_id3`, `decision_tree_cart` (in `models/`).
 - Results merge: `models/summarize.py`.
 
@@ -15,17 +15,29 @@ Numbers below are read from `outputs/*.json` (validation split, `toxicity` label
 | Model | Features | Labels done | F1 | Precision | Recall | ROC-AUC |
 | --- | --- | --- | --- | --- | --- | --- |
 | linear_regression | doc2vec | 6 of 6 | 0.312 | 0.198 | 0.731 | 0.810 |
+| linear_regression | doc2vec_dbow | 6 of 6 | 0.346 | 0.222 | 0.788 | 0.853 |
 | linear_regression | word2vec | 6 of 6 | 0.335 | 0.216 | 0.746 | 0.838 |
 | logistic_regression | doc2vec | 6 of 6 | 0.313 | 0.199 | 0.730 | 0.812 |
+| logistic_regression | doc2vec_dbow | 6 of 6 | 0.349 | 0.225 | 0.782 | 0.853 |
 | logistic_regression | word2vec | 6 of 6 | 0.352 | 0.229 | 0.763 | 0.849 |
 | naive_bayes | doc2vec | 6 of 6 | 0.203 | 0.122 | 0.610 | 0.663 |
+| naive_bayes | doc2vec_dbow | 6 of 6 | 0.304 | 0.200 | 0.632 | 0.752 |
 | naive_bayes | word2vec | 6 of 6 | 0.281 | 0.176 | 0.703 | 0.766 |
 | perceptron | doc2vec | 6 of 6 | 0.227 | 0.139 | 0.626 | 0.699 |
+| perceptron | doc2vec_dbow | 6 of 6 | 0.275 | 0.171 | 0.704 | 0.775 |
 | perceptron | word2vec | 6 of 6 | 0.264 | 0.158 | 0.802 | 0.797 |
 
 ## Doc2Vec vs Word2Vec
 
-Word2Vec beats Doc2Vec on all four models. Best toxicity F1 is 0.352 against 0.313, and mean ROC-AUC over the 24 results of each feature set is 0.855 against 0.801. Doc2Vec is the PV-DM version; it passes the leakage rule (largest |r| 0.107).
+Three text features were compared on the four finished models, 24 results each.
+
+| Features | Best toxicity F1 | Mean ROC-AUC |
+| --- | --- | --- |
+| word2vec | 0.352 | 0.855 |
+| doc2vec_dbow (PV-DBOW) | 0.349 | 0.856 |
+| doc2vec (PV-DM) | 0.313 | 0.801 |
+
+PV-DBOW and Word2Vec are about level, and both beat PV-DM. All three pass the leakage rule.
 
 ## Nothing is running now
 

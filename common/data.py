@@ -26,8 +26,8 @@ os.makedirs(OUTPUTS, exist_ok=True)
 
 TARGETS = ["toxicity", "insult", "identity_attack", "obscene", "threat", "sexual_explicit"]
 SPLITS = ["train", "validation", "test"]
-TEXT_DIR = {"word2vec": "w2v", "doc2vec": "doc2vec"}
-FEATURE_SETS = list(TEXT_DIR)
+TEXT_DIR = {"word2vec": "w2v", "doc2vec": "doc2vec", "doc2vec_dbow": "doc2vec_dbow"}
+FEATURE_SETS = ["word2vec", "doc2vec"]      # the default runs; doc2vec_dbow is asked for by name
 CHUNK = 100_000
 EVAL_TRAIN_ROWS = 300_000          # training metrics are read on a sample of this size
 
@@ -131,6 +131,6 @@ class Timer:
 if __name__ == "__main__":
     for split in SPLITS:
         _build_labels(split)
-        for text in FEATURE_SETS:
+        for text in TEXT_DIR:
             if os.path.exists(os.path.join(CLEAN, TEXT_DIR[text], f"{split}.npy")):
                 print("built", _build_features(split, text), flush=True)
