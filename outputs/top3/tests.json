@@ -1,0 +1,61 @@
+{
+ "label": "toxicity",
+ "split": "test",
+ "bootstrap_resamples": 1000,
+ "ci95": {
+  "svm_rbf": {
+   "f1": {
+    "mean": 0.40699735834867623,
+    "low": 0.3984197832920922,
+    "high": 0.4156546462788939
+   },
+   "roc_auc": {
+    "mean": 0.8517624731048845,
+    "low": 0.8478893811090515,
+    "high": 0.8556893144726663
+   }
+  },
+  "mlp": {
+   "f1": {
+    "mean": 0.3745965568851658,
+    "low": 0.3629421353202565,
+    "high": 0.3863598718675081
+   },
+   "roc_auc": {
+    "mean": 0.8827723087095499,
+    "low": 0.8789418251503941,
+    "high": 0.8863208840821516
+   }
+  },
+  "logistic_regression": {
+   "f1": {
+    "mean": 0.34753570566886904,
+    "low": 0.3411603864423065,
+    "high": 0.35361126824085
+   },
+   "roc_auc": {
+    "mean": 0.8436397322363641,
+    "low": 0.8392546531266553,
+    "high": 0.8479670222244955
+   }
+  }
+ },
+ "mcnemar": {
+  "svm_rbf vs mlp": {
+   "only_first_right": 2624,
+   "only_second_right": 7948,
+   "chi2": 2680.1294930003783
+  },
+  "svm_rbf vs logistic_regression": {
+   "only_first_right": 14036,
+   "only_second_right": 4176,
+   "chi2": 5337.133812870635
+  },
+  "mlp vs logistic_regression": {
+   "only_first_right": 19036,
+   "only_second_right": 3852,
+   "chi2": 10071.805706046836
+  }
+ },
+ "note": "chi2 > 3.84 means p < 0.05 (1 degree of freedom)"
+}
