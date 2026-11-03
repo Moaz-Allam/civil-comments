@@ -11,3 +11,6 @@ node_modules/
 
 # Phase 3 run logs
 outputs/logs/
+
+# macOS
+.DS_Store
