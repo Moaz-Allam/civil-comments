@@ -1,0 +1,56 @@
+{
+ "model": "adaboost",
+ "label": "sexual_explicit",
+ "features": "doc2vec_dbow",
+ "params": {
+  "estimator": "DecisionTreeClassifier(max_depth=1)",
+  "n_estimators": 100
+ },
+ "train": {
+  "accuracy": 0.9972666666666666,
+  "error_rate": 0.0027333333333333333,
+  "precision": 0.25675675675675674,
+  "recall": 0.02423469387755102,
+  "specificity": 0.9998161863001979,
+  "fpr": 0.00018381369980214962,
+  "f1": 0.04428904428904429,
+  "tp": 19,
+  "fp": 55,
+  "fn": 765,
+  "tn": 299161,
+  "roc_auc": 0.9411084990885022
+ },
+ "validation": {
+  "accuracy": 0.9978318947801068,
+  "error_rate": 0.002168105219893136,
+  "precision": 0.1875,
+  "recall": 0.014925373134328358,
+  "specificity": 0.9998661435970304,
+  "fpr": 0.00013385640296955281,
+  "f1": 0.027649769585253458,
+  "tp": 3,
+  "fp": 13,
+  "fn": 198,
+  "tn": 97106,
+  "roc_auc": 0.8928163166908278
+ },
+ "test": {
+  "accuracy": 0.9973386765310317,
+  "error_rate": 0.0026613234689683517,
+  "precision": 0.08695652173913043,
+  "recall": 0.008333333333333333,
+  "specificity": 0.9997836835599505,
+  "fpr": 0.00021631644004944375,
+  "f1": 0.015209125475285173,
+  "tp": 2,
+  "fp": 21,
+  "fn": 238,
+  "tn": 97059,
+  "roc_auc": 0.8980963294877078
+ },
+ "seed": 0,
+ "n_train": 300000,
+ "sampled": true,
+ "seconds": 445.8,
+ "notes": null
+}

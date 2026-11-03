@@ -1,0 +1,63 @@
+{
+ "model": "random_forest",
+ "label": "identity_attack",
+ "features": "doc2vec_dbow",
+ "params": {
+  "n_estimators": 100,
+  "max_features": "sqrt",
+  "class_weight": "balanced_subsample",
+  "max_depth": null,
+  "tried_val_f1": {
+   "100": 0.0,
+   "200": 0.0,
+   "300": 0.0
+  }
+ },
+ "train": {
+  "accuracy": 0.99997,
+  "error_rate": 3e-05,
+  "precision": 1.0,
+  "recall": 0.995980348369808,
+  "specificity": 1.0,
+  "fpr": 0.0,
+  "f1": 0.9979861266502573,
+  "tp": 2230,
+  "fp": 0,
+  "fn": 9,
+  "tn": 297761,
+  "roc_auc": 1.0
+ },
+ "validation": {
+  "accuracy": 0.9931771475544595,
+  "error_rate": 0.006822852445540485,
+  "precision": 0.0,
+  "recall": 0.0,
+  "specificity": 1.0,
+  "fpr": 0.0,
+  "f1": 0.0,
+  "tp": 0,
+  "fp": 0,
+  "fn": 664,
+  "tn": 96656,
+  "roc_auc": 0.8050133512862907
+ },
+ "test": {
+  "accuracy": 0.992940813810111,
+  "error_rate": 0.007059186189889026,
+  "precision": 0.0,
+  "recall": 0.0,
+  "specificity": 1.0,
+  "fpr": 0.0,
+  "f1": 0.0,
+  "tp": 0,
+  "fp": 0,
+  "fn": 687,
+  "tn": 96633,
+  "roc_auc": 0.8052179775124513
+ },
+ "seed": 0,
+ "n_train": 300000,
+ "sampled": true,
+ "seconds": 66.8,
+ "notes": null
+}

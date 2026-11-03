@@ -1,0 +1,63 @@
+{
+ "model": "random_forest",
+ "label": "toxicity",
+ "features": "word2vec",
+ "params": {
+  "n_estimators": 100,
+  "max_features": "sqrt",
+  "class_weight": "balanced_subsample",
+  "max_depth": null,
+  "tried_val_f1": {
+   "100": 0.08961802154750244,
+   "200": 0.08656204021579206,
+   "300": 0.08539877300613498
+  }
+ },
+ "train": {
+  "accuracy": 0.99996,
+  "error_rate": 4e-05,
+  "precision": 1.0,
+  "recall": 0.9995001666111296,
+  "specificity": 1.0,
+  "fpr": 0.0,
+  "f1": 0.9997500208315974,
+  "tp": 23996,
+  "fp": 0,
+  "fn": 12,
+  "tn": 275992,
+  "roc_auc": 1.0
+ },
+ "validation": {
+  "accuracy": 0.9235922729140978,
+  "error_rate": 0.07640772708590218,
+  "precision": 0.7364185110663984,
+  "recall": 0.04771216269065311,
+  "specificity": 0.9985387455520977,
+  "fpr": 0.0014612544479023748,
+  "f1": 0.08961802154750244,
+  "tp": 366,
+  "fp": 131,
+  "fn": 7305,
+  "tn": 89518,
+  "roc_auc": 0.8176057891292632
+ },
+ "test": {
+  "accuracy": 0.9225647348951911,
+  "error_rate": 0.07743526510480887,
+  "precision": 0.7321772639691715,
+  "recall": 0.04886202906004886,
+  "specificity": 0.9984476731849502,
+  "fpr": 0.0015523268150497527,
+  "f1": 0.09161041465766634,
+  "tp": 380,
+  "fp": 139,
+  "fn": 7397,
+  "tn": 89404,
+  "roc_auc": 0.8124134243638419
+ },
+ "seed": 0,
+ "n_train": 300000,
+ "sampled": true,
+ "seconds": 80.2,
+ "notes": null
+}

@@ -1,0 +1,59 @@
+{
+ "model": "svm_rbf",
+ "label": "identity_attack",
+ "features": "word2vec",
+ "params": {
+  "kernel": "rbf",
+  "gamma": "scale",
+  "C": 1.0,
+  "class_weight": "balanced",
+  "support_vectors": 5002
+ },
+ "train": {
+  "accuracy": 0.9905,
+  "error_rate": 0.0095,
+  "precision": 0.43985849056603776,
+  "recall": 1.0,
+  "specificity": 0.9904285973361275,
+  "fpr": 0.009571402663872488,
+  "f1": 0.610974610974611,
+  "tp": 373,
+  "fp": 475,
+  "fn": 0,
+  "tn": 49152,
+  "roc_auc": 0.9990652519808495
+ },
+ "validation": {
+  "accuracy": 0.9840834360871352,
+  "error_rate": 0.015916563912864775,
+  "precision": 0.18594748048261178,
+  "recall": 0.39457831325301207,
+  "specificity": 0.9881331733156762,
+  "fpr": 0.011866826684323787,
+  "f1": 0.2527737578388809,
+  "tp": 262,
+  "fp": 1147,
+  "fn": 402,
+  "tn": 95509,
+  "roc_auc": 0.9242297129878561
+ },
+ "test": {
+  "accuracy": 0.9840731607069462,
+  "error_rate": 0.015926839293053843,
+  "precision": 0.18663761801016704,
+  "recall": 0.37409024745269287,
+  "specificity": 0.9884097565014022,
+  "fpr": 0.011590243498597788,
+  "f1": 0.24903100775193798,
+  "tp": 257,
+  "fp": 1120,
+  "fn": 430,
+  "tn": 95513,
+  "roc_auc": 0.9247567564978323
+ },
+ "seed": 0,
+ "n_train": 50000,
+ "sampled": true,
+ "seconds": 241.5,
+ "notes": null
+}

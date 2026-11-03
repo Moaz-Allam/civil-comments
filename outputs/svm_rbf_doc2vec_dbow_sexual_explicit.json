@@ -1,0 +1,59 @@
+{
+ "model": "svm_rbf",
+ "label": "sexual_explicit",
+ "features": "doc2vec_dbow",
+ "params": {
+  "kernel": "rbf",
+  "gamma": "scale",
+  "C": 1.0,
+  "class_weight": "balanced",
+  "support_vectors": 2165
+ },
+ "train": {
+  "accuracy": 0.99986,
+  "error_rate": 0.00014,
+  "precision": 0.9492753623188406,
+  "recall": 1.0,
+  "specificity": 0.9998596322364596,
+  "fpr": 0.00014036776354047604,
+  "f1": 0.9739776951672863,
+  "tp": 131,
+  "fp": 7,
+  "fn": 0,
+  "tn": 49862,
+  "roc_auc": 1.0
+ },
+ "validation": {
+  "accuracy": 0.9978113440197287,
+  "error_rate": 0.00218865598027127,
+  "precision": 0.25,
+  "recall": 0.029850746268656716,
+  "specificity": 0.9998146603651191,
+  "fpr": 0.0001853396348809193,
+  "f1": 0.05333333333333334,
+  "tp": 6,
+  "fp": 18,
+  "fn": 195,
+  "tn": 97101,
+  "roc_auc": 0.8838147425333819
+ },
+ "test": {
+  "accuracy": 0.9974517057131114,
+  "error_rate": 0.002548294286888615,
+  "precision": 0.2777777777777778,
+  "recall": 0.020833333333333332,
+  "specificity": 0.9998660898228265,
+  "fpr": 0.00013391017717346519,
+  "f1": 0.03875968992248062,
+  "tp": 5,
+  "fp": 13,
+  "fn": 235,
+  "tn": 97067,
+  "roc_auc": 0.9034093445268507
+ },
+ "seed": 0,
+ "n_train": 50000,
+ "sampled": true,
+ "seconds": 76.9,
+ "notes": null
+}

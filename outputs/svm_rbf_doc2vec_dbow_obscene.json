@@ -1,0 +1,59 @@
+{
+ "model": "svm_rbf",
+ "label": "obscene",
+ "features": "doc2vec_dbow",
+ "params": {
+  "kernel": "rbf",
+  "gamma": "scale",
+  "C": 1.0,
+  "class_weight": "balanced",
+  "support_vectors": 4138
+ },
+ "train": {
+  "accuracy": 0.99934,
+  "error_rate": 0.00066,
+  "precision": 0.89,
+  "recall": 1.0,
+  "specificity": 0.9993364566786641,
+  "fpr": 0.0006635433213359339,
+  "f1": 0.9417989417989417,
+  "tp": 267,
+  "fp": 33,
+  "fn": 0,
+  "tn": 49700,
+  "roc_auc": 1.0
+ },
+ "validation": {
+  "accuracy": 0.9942046855733662,
+  "error_rate": 0.005795314426633786,
+  "precision": 0.3741935483870968,
+  "recall": 0.11047619047619048,
+  "specificity": 0.9989978821220105,
+  "fpr": 0.0010021178779895657,
+  "f1": 0.17058823529411765,
+  "tp": 58,
+  "fp": 97,
+  "fn": 467,
+  "tn": 96698,
+  "roc_auc": 0.87327548894448
+ },
+ "test": {
+  "accuracy": 0.9939478010686396,
+  "error_rate": 0.00605219893136046,
+  "precision": 0.34459459459459457,
+  "recall": 0.09392265193370165,
+  "specificity": 0.9989976957334904,
+  "fpr": 0.0010023042665096046,
+  "f1": 0.1476121562952243,
+  "tp": 51,
+  "fp": 97,
+  "fn": 492,
+  "tn": 96680,
+  "roc_auc": 0.8835743223237811
+ },
+ "seed": 0,
+ "n_train": 50000,
+ "sampled": true,
+ "seconds": 175.2,
+ "notes": null
+}
