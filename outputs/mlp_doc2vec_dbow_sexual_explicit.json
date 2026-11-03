@@ -1,0 +1,64 @@
+{
+ "model": "mlp",
+ "label": "sexual_explicit",
+ "features": "doc2vec_dbow",
+ "params": {
+  "hidden_layer_sizes": "(64,)",
+  "learning_rate_init": 0.001,
+  "early_stopping": true,
+  "tried_val_f1": {
+   "(64,)": 0.0,
+   "(128,)": 0.0,
+   "(128, 64)": 0.0
+  },
+  "tune_rows": 300000,
+  "epochs": 12
+ },
+ "train": {
+  "accuracy": 0.99742,
+  "error_rate": 0.00258,
+  "precision": 0.6470588235294118,
+  "recall": 0.02806122448979592,
+  "specificity": 0.9999598951927704,
+  "fpr": 4.010480722955992e-05,
+  "f1": 0.053789731051344755,
+  "tp": 22,
+  "fp": 12,
+  "fn": 762,
+  "tn": 299204,
+  "roc_auc": 0.9717267929577049
+ },
+ "validation": {
+  "accuracy": 0.9978935470612412,
+  "error_rate": 0.002106452938758734,
+  "precision": 0.0,
+  "recall": 0.0,
+  "specificity": 0.9999588134144709,
+  "fpr": 4.1186585529093176e-05,
+  "f1": 0.0,
+  "tp": 0,
+  "fp": 4,
+  "fn": 201,
+  "tn": 97115,
+  "roc_auc": 0.9407028429348023
+ },
+ "test": {
+  "accuracy": 0.9974722564734895,
+  "error_rate": 0.002527743526510481,
+  "precision": 0.125,
+  "recall": 0.004166666666666667,
+  "specificity": 0.9999278945199835,
+  "fpr": 7.210548001648125e-05,
+  "f1": 0.008064516129032258,
+  "tp": 1,
+  "fp": 7,
+  "fn": 239,
+  "tn": 97073,
+  "roc_auc": 0.9392325058371103
+ },
+ "seed": 0,
+ "n_train": 1777414,
+ "sampled": false,
+ "seconds": 66.7,
+ "notes": null
+}
