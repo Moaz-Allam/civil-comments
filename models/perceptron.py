@@ -1,15 +1,4 @@
-"""
-Perceptron (Lecture 6), one model per label, balanced class weights (Lab 2).
-
-Training runs over chunks of 100,000 rows with partial_fit, so the rows are read in order
-from disk and shuffled inside each chunk. A perceptron gives a decision value rather than
-a probability; that value ranks the comments, which is all ROC-AUC needs.
-
-Parameter choice: the number of passes. Training stops after 2 passes without a better
-validation F1, and the weights of the best pass are kept.
-
-Run:  python models/perceptron.py [--features word2vec doc2vec]
-"""
+"""Perceptron trained in chunks with balanced class weights. Number of passes picked by validation F1."""
 import argparse
 import os
 import sys

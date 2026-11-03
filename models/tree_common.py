@@ -1,12 +1,6 @@
 """
-Shared code of the two decision trees on this machine, ID3 (entropy) and CART (gini).
-Balanced class weights, as in every other model.
-
-Parameter choice: max_depth, by validation F1, on a stratified sample of TUNE_ROWS rows.
-The final tree is then fitted with that depth on every training row. A tree reads rows in
-random order at every split, so all of X has to be in RAM (about 1 GB, plus 1-2 GB for the
-fits): these runs need the 16 GB machine. Fitting one tree per label in parallel threads
-shares that one copy of X. Each result records the rows it used.
+Shared code for the ID3 and CART trees. max_depth is picked on a 200k sample, then the tree is fitted
+on all rows (about 16 GB of RAM) or on a sample (--final-rows).
 """
 import argparse
 import os
@@ -60,7 +54,6 @@ def run(model_name, criterion, texts, tune_rows, final_rows, targets, jobs):
             continue
         X = features("train", text)
         Xv = np.asarray(features("validation", text))
-        # final_rows = 0 means every row: one copy in RAM, shared by the parallel fits
         Xfull = np.array(X) if final_rows == 0 else None
         Parallel(n_jobs=jobs, prefer="threads")(
             delayed(fit_one)(model_name, criterion, text, t, X, Xfull, Xv, tune_rows, final_rows) for t in todo)

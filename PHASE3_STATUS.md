@@ -65,6 +65,24 @@ Run time on the full data is not measured yet. Finished results are skipped, so 
 - Linear regression and Naive Bayes each also try one balancing option, kept if validation F1 is better.
 - The perceptron reports ROC-AUC from its decision value.
 
+## Models not run
+
+- Bayesian network: skipped on purpose, and explained in the report. It needs a known structure and discrete variables; our 133 features are continuous and have no causal meaning. Naive Bayes covers the Bayesian family.
+
+## Notes for the ACM report
+
+Write these into the report:
+
+- **Bayesian network, not run.** A Bayesian network needs a known structure, built from causal relationships or domain knowledge, and it stores a probability table for each node (Lecture 11). Our 133 features do not fit this. The 100 text dimensions and the scaled statistics are continuous, and embedding dimensions have no causal meaning, so no structure can be drawn from domain knowledge. Learning a structure without that knowledge depends heavily on the feature ordering, and the probability tables would first require binning every feature, which discards information. Naive Bayes, the special case with a fixed structure that treats features as independent given the label, was run instead and represents the Bayesian family.
+- **Doc2Vec.** Follows the Phase 2 feedback. Compare Word2Vec, PV-DBOW and PV-DM (table above). Vectors were inferred the same way for all splits, because stored training vectors differ from inferred ones (mean cosine 0.87 for PV-DM, 0.94 for PV-DBOW).
+- **Changes from the Phase 1 plan.** TF-IDF was removed in Phase 2, and DistilBERT is not used because only course models are allowed.
+- **Tree substitutions.** scikit-learn has no true ID3 or C4.5, so state what stands in for each. ID3 is an entropy tree without pruning.
+- **Linear regression.** Fitted on the 0/1 label and cut at 0.5: a linear probability model, not regression on the raw score.
+- **Sampling.** State the rows each model used. `n_train` and `sampled` are in every result file.
+- **Low F1 on rare labels.** Models use the default decision cut, and balanced weights favour recall. Report ROC-AUC beside F1.
+- **Phase 1 commitments.** Repeat the evaluation at label thresholds 0.4 and 0.6, and run the identity-subgroup check on the top 3.
+- **Changes from the handout.** Listed in this file.
+
 ## Open points
 
 - F1 is low on the rare labels. Models use the default decision cut, and balanced weights favour recall.

@@ -1,12 +1,4 @@
-"""
-Logistic regression (Lecture 5), one model per label, balanced class weights (Lab 2).
-
-Parameter choice: C is chosen by validation F1 on a stratified 200,000-row sample, then the
-model is refitted with that C on all training rows. A 5-fold search on all rows would need
-25 full fits for each label and feature set.
-
-Run:  python models/logistic_regression.py [--features word2vec doc2vec]
-"""
+"""Logistic regression with balanced class weights. C is picked on a 200k sample, then fitted on all rows."""
 import argparse
 import os
 import sys

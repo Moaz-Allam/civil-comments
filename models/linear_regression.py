@@ -1,14 +1,6 @@
 """
-Linear regression (Lecture 4) used as a classifier: fitted on the 0/1 label, positive
-when the output is at least 0.5 (a linear probability model).
-
-The normal equations W = (X'X)^-1 X'y are built in chunks, so all 1.78M rows fit in
-memory. The publication one-hot columns sum to 1, like the intercept, so X'X is singular;
-the pseudo-inverse gives the same minimum-norm solution as scikit-learn's LinearRegression.
-
-Parameter choice: unweighted, or with balanced class weights; the better validation F1 wins.
-
-Run:  python models/linear_regression.py [--features word2vec doc2vec]
+Linear regression as a classifier: fitted on the 0/1 label, positive when the output is >= 0.5.
+Solved in chunks with the normal equations; class weights picked by validation F1.
 """
 import argparse
 import os
@@ -28,7 +20,7 @@ def with_intercept(X):
 
 
 def gram_matrices(X, Y):
-    """X'X and X'y over all rows, plus the same two sums over each target's positive rows."""
+    """X'X and X'y, also over each label's positive rows."""
     d = X.shape[1] + 1
     k = Y.shape[1]
     A, b = np.zeros((d, d)), np.zeros((d, k))
@@ -62,7 +54,7 @@ def main(texts):
             yv = label_column("validation", target)
             with Timer() as fit_time:
                 n1 = float(Y[:, j].sum())
-                w1, w0 = n / (2 * n1), n / (2 * (n - n1))     # scikit-learn's "balanced" weights
+                w1, w0 = n / (2 * n1), n / (2 * (n - n1))     # balanced weights
                 options = {
                     "none": solve(A, b[:, j]),
                     "balanced": solve(w0 * (A - A1[j]) + w1 * A1[j], w1 * b1[j]),

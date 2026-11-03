@@ -1,25 +1,9 @@
 """
-07_doc2vec.py -- Phase 3 text features: one Doc2Vec (PV-DM) vector per comment,
-as suggested in the Phase 2 feedback, to compare with the mean of Word2Vec vectors.
-
-The model is trained on the training comments only. All three splits then get
-their vectors the same way, through infer_vector. The vectors stored for training
-documents during training are not used as features, because they come from a
-different process than the vectors a new comment gets, and a classifier fitted on
-one would be tested on the other. The script measures that gap and reports it.
-
-The vectors are standardised with training statistics, and every dimension is
+Doc2Vec features: trained on the training split, vectors inferred for every split, standardised and
 checked against the |r| >= 0.85 leakage rule.
 
-Output
-    data/clean/doc2vec/{split}.npy       float32, 100 dimensions, rows in parquet order
-    data/clean/doc2vec/doc2vec.model     the fitted model
-    data/clean/doc2vec/scaler_*.npy      training mean and std
-    prep/out/07_doc2vec.json             settings, timings, checks
-
-Run:  python prep/07_doc2vec.py                     (full run)
-      python prep/07_doc2vec.py --dm 0 --out doc2vec_dbow      (PV-DBOW, the other Doc2Vec mode)
-      python prep/07_doc2vec.py --limit 50000 --epochs 2 --out doc2vec_smoke
+Run:  python prep/07_doc2vec.py                         (PV-DM)
+      python prep/07_doc2vec.py --dm 0 --out doc2vec_dbow (PV-DBOW)
 """
 import argparse
 import multiprocessing as mp
@@ -38,14 +22,14 @@ from common import CLEAN, INTERIM, SEED, SPLITS, save_json, banner
 
 DIM, WINDOW, MIN_COUNT, NEG = 100, 5, 5, 5
 TARGETS = ["toxicity", "insult", "identity_attack", "obscene", "threat", "sexual_explicit"]
-EMPTY = "xxempty"                  # a comment with no words still needs its own line
-BLOCK = 20_000                     # comments per inference task
+EMPTY = "xxempty"                  # placeholder for empty comments
+BLOCK = 20_000
 LEAK = 0.85
 _model = None
 
 
 def write_corpus(split, path, limit=None):
-    """One comment per line; returns the row count and the byte offset of each block."""
+    """One comment per line; returns the row count and block offsets."""
     rows, offsets, pos = 0, [0], 0
     source = pq.ParquetFile(os.path.join(CLEAN, f"{split}.parquet"))
     with open(path, "wb") as f:
@@ -81,7 +65,7 @@ def infer_block(task):
 
 
 def max_label_corr(path, limit):
-    """Largest |r| between any dimension and any target, computed in chunks."""
+    """Largest |r| between any dimension and any target."""
     table = pq.read_table(os.path.join(CLEAN, "train.parquet"), columns=[f"y_{t}" for t in TARGETS])
     Y = np.column_stack([table.column(i).to_numpy() for i in range(len(TARGETS))])[:limit].astype(np.float64)
     del table
@@ -135,7 +119,7 @@ def main():
     res["vocabulary_size"] = len(model.wv)
     res["corpus_words"] = int(model.corpus_total_words)
     print(f"vocabulary {len(model.wv):,} words, {model.corpus_total_words:,} tokens, {res['train_seconds']}s", flush=True)
-    if a.dm == 1:                  # PV-DBOW does not train word vectors, so it has no word neighbours
+    if a.dm == 1:                  # PV-DBOW has no word vectors
         res["neighbours"] = {w: [[n, round(float(s), 3)] for n, s in model.wv.most_similar(w, topn=5)]
                              for w in ["idiot", "stupid", "thanks"] if w in model.wv.key_to_index}
         print(res["neighbours"], flush=True)

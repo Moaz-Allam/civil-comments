@@ -1,12 +1,4 @@
-"""
-Gaussian Naive Bayes (Lecture 11), one model per label. The features are continuous, so
-each feature gets a normal distribution per class. Fitted in chunks with partial_fit.
-
-Parameter choice: the class priors, either learned from the data or uniform (0.5 / 0.5,
-which plays the role of balanced class weights); the better validation F1 wins.
-
-Run:  python models/naive_bayes.py [--features word2vec doc2vec]
-"""
+"""Gaussian Naive Bayes trained in chunks. Priors (learned or uniform) picked by validation F1."""
 import argparse
 import os
 import sys

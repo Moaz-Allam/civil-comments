@@ -1,9 +1,4 @@
-"""
-Merges every outputs/*.json into outputs/summary.csv, one row per model, feature set and
-label, with the validation and test metrics. Rank models on validation only.
-
-Run:  python models/summarize.py
-"""
+"""Merges outputs/*.json into outputs/summary.csv."""
 import glob
 import json
 import os

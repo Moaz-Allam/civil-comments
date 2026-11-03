@@ -1,9 +1,8 @@
-"""Stratified sampling: the same rule for every model that cannot use all rows (Lab 2)."""
+"""Stratified sampling."""
 import numpy as np
 
 
 def stratified_indices(y, n, seed=0):
-    """Sorted row numbers of a sample of about n rows with the class balance of y."""
     y = np.asarray(y)
     if len(y) <= n:
         return np.arange(len(y))

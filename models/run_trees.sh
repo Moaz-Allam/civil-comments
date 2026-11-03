@@ -1,11 +1,5 @@
 #!/bin/bash
-# ID3 and CART on every training row, for the 16 GB laptop. Run from the project folder:
-#     bash models/run_trees.sh
-# Features: Word2Vec and Doc2Vec PV-DBOW.
-# Needs in data/clean: the 3 parquet files, preprocessing_params.json, and train/validation/test.npy
-# in both w2v/ and doc2vec_dbow/.
-# Finished results are skipped, so it is safe to stop it and run it again.
-# Lower JOBS if the laptop runs out of memory.
+# ID3 and CART on all training rows (needs about 16 GB of RAM). Run: bash models/run_trees.sh
 set -e
 JOBS=${JOBS:-6}
 export OMP_NUM_THREADS=1

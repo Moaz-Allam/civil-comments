@@ -1,11 +1,6 @@
 """
-Loading the Phase 2/3 features for every model.
-
-X = 33 scaled tabular features + 100 text dimensions (Word2Vec or Doc2Vec), float32.
-The first call builds one file per feature set and split under data/clean/cache; after
-that X opens as a memory map, so nothing is held in RAM until it is read.
-
-    python -m common.data        builds every cache file that is possible so far
+Loads the features (33 tabular + 100 text dimensions) and labels, and saves results.
+Run `python -m common.data` to build the cache.
 """
 import json
 import os
@@ -27,9 +22,9 @@ os.makedirs(OUTPUTS, exist_ok=True)
 TARGETS = ["toxicity", "insult", "identity_attack", "obscene", "threat", "sexual_explicit"]
 SPLITS = ["train", "validation", "test"]
 TEXT_DIR = {"word2vec": "w2v", "doc2vec": "doc2vec", "doc2vec_dbow": "doc2vec_dbow"}
-FEATURE_SETS = ["word2vec", "doc2vec_dbow"]      # the default runs; PV-DM (doc2vec) was weaker
+FEATURE_SETS = ["word2vec", "doc2vec_dbow"]
 CHUNK = 100_000
-EVAL_TRAIN_ROWS = 300_000          # training metrics are read on a sample of this size
+EVAL_TRAIN_ROWS = 300_000          # rows used for training metrics
 
 
 def tabular_columns():
@@ -86,7 +81,6 @@ def result_path(model, text, target):
 
 
 def save_result(model, target, text, params, scores, seconds, seed=0, n_train=None, sampled=False, notes=None):
-    """scores = {"train": evaluate(...), "validation": ..., "test": ...}"""
     record = {"model": model, "label": target, "features": text, "params": params, **scores,
               "seed": seed, "n_train": n_train, "sampled": sampled, "seconds": round(seconds, 1), "notes": notes}
     with open(result_path(model, text, target), "w", encoding="utf8") as f:
@@ -98,7 +92,7 @@ def save_result(model, target, text, params, scores, seconds, seed=0, n_train=No
 
 
 def score_split(predict, split, text, target):
-    """predict(X_block) -> (0/1 predictions, ranking score); runs in chunks to save memory."""
+    """predict(X) -> (0/1 predictions, ranking score)."""
     X = features(split, text)
     y = label_column(split, target)
     rows = stratified_indices(y, EVAL_TRAIN_ROWS, 0) if split == "train" else np.arange(len(y))
