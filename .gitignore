@@ -14,3 +14,8 @@ outputs/logs/
 
 # macOS
 .DS_Store
+
+# Phase 4 out-of-fold scores (816 MB) and run log
+outputs/phase4/run/oof/
+outputs/phase4/*.log
+outputs/phase4/results.jsonl

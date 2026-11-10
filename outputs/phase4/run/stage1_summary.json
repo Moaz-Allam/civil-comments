@@ -1,0 +1,663 @@
+[
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.33181963638906337,
+  "std_pr_auc": 0.0021288777176782766,
+  "mean_roc_auc": 0.9370966917064754
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 0.5,
+   "alpha": 0.5,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3311451140776608,
+  "std_pr_auc": 0.0034185846064754806,
+  "mean_roc_auc": 0.9367864611812683
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": 0.5,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3294968973932101,
+  "std_pr_auc": 0.0026096181307864643,
+  "mean_roc_auc": 0.9368569477896281
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 2.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3290358383182793,
+  "std_pr_auc": 0.0007462768092286522,
+  "mean_roc_auc": 0.93613716078716
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 0.5,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3289584731744806,
+  "std_pr_auc": 0.0011324310862954017,
+  "mean_roc_auc": 0.9359557678694955
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.32853730823817984,
+  "std_pr_auc": 0.005603117720412131,
+  "mean_roc_auc": 0.935681997905623
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 2.0,
+   "alpha": 0.5,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.32478913698329953,
+  "std_pr_auc": 0.0038979604408526177,
+  "mean_roc_auc": 0.9360909642400748
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 3.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3224853611087323,
+  "std_pr_auc": 0.004582573390027927,
+  "mean_roc_auc": 0.9352151164014237
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 3.0,
+   "alpha": 0.5,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.31406128524879845,
+  "std_pr_auc": 0.009417243323830708,
+  "mean_roc_auc": 0.9352978376105442
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    512
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.30658089388005383,
+  "std_pr_auc": 0.0012248914697552064,
+  "mean_roc_auc": 0.9215871909839934
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    512,
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": "balanced",
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.30463623661281525,
+  "std_pr_auc": 0.004563615222564788,
+  "mean_roc_auc": 0.9345742772967801
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    512,
+    256
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 2.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3013802191205447,
+  "std_pr_auc": 0.004024230578601443,
+  "mean_roc_auc": 0.9197181492726516
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    512,
+    256
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 3.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.298734125383182,
+  "std_pr_auc": 0.003177096501325525,
+  "mean_roc_auc": 0.9188543914758398
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    256
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.2969321767563102,
+  "std_pr_auc": 0.0038958902619314045,
+  "mean_roc_auc": 0.9189830905457445
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "wbce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.28470956740691106,
+  "std_pr_auc": 0.004545275812085168,
+  "mean_roc_auc": 0.934160365103876
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    512,
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": "balanced",
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.2836770488132295,
+  "std_pr_auc": 0.0015709433634756745,
+  "mean_roc_auc": 0.9185335932118066
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 1.0,
+   "alpha": "balanced",
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.2802444933382936,
+  "std_pr_auc": 0.006777865147346179,
+  "mean_roc_auc": 0.9341391694365188
+ },
+ {
+  "setting": {
+   "text": "word2vec",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 3.0,
+   "alpha": "balanced",
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.2736140525926224,
+  "std_pr_auc": 0.004883033695646925,
+  "mean_roc_auc": 0.9171146599424922
+ },
+ {
+  "setting": {
+   "text": "doc2vec_dbow",
+   "hidden": [
+    512,
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 2.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.27028965881864464,
+  "std_pr_auc": 0.003304369828289001,
+  "mean_roc_auc": 0.9245436841811994
+ },
+ {
+  "setting": {
+   "text": "doc2vec_dbow",
+   "hidden": [
+    512,
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "focal",
+   "gamma": 3.0,
+   "alpha": 0.25,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.26768578721508884,
+  "std_pr_auc": 0.004431300173874867,
+  "mean_roc_auc": 0.9252157052342487
+ },
+ {
+  "setting": {
+   "text": "doc2vec_dbow",
+   "hidden": [
+    512,
+    256
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "wbce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.23217853015021692,
+  "std_pr_auc": 0.0008702578960242123,
+  "mean_roc_auc": 0.9244971479270319
+ },
+ {
+  "setting": {
+   "text": "doc2vec_dbow",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "wbce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.2298277536832655,
+  "std_pr_auc": 0.001250302603043899,
+  "mean_roc_auc": 0.9234652569229365
+ }
+]

@@ -1,0 +1,1487 @@
+[
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3321057470907537,
+  "std_pr_auc": 0.002561435444665565,
+  "mean_roc_auc": 0.9370758491101518,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8476936883871955,
+    "bpsn_auc": 0.8013565628720167,
+    "bnsp_auc": 0.9333014405507356
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8489144899227019,
+    "bpsn_auc": 0.8226980720791464,
+    "bnsp_auc": 0.9238810705371321
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7987925068776766,
+    "bpsn_auc": 0.7906214363948671,
+    "bnsp_auc": 0.9124110770113556
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7539990873324206,
+    "bpsn_auc": 0.7265741047664641,
+    "bnsp_auc": 0.9244602132004954
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7677418412893585,
+    "bpsn_auc": 0.7615868944477282,
+    "bnsp_auc": 0.9143835997363856
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8721361031267394,
+    "bpsn_auc": 0.8864291042453926,
+    "bnsp_auc": 0.8930496973137677
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8231779190994684,
+    "bpsn_auc": 0.8148087346130206,
+    "bnsp_auc": 0.9130716905354115
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.794080917232262,
+    "bpsn_auc": 0.7693047025880647,
+    "bnsp_auc": 0.92264230779961
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8630531238757646,
+    "bpsn_auc": 0.8073895798051816,
+    "bnsp_auc": 0.9353919582160477
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8488577362409139,
+    "bpsn_auc": 0.8170316589892161,
+    "bnsp_auc": 0.9258164001059116
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8552731990231991,
+    "bpsn_auc": 0.8229437071308502,
+    "bnsp_auc": 0.9253131693002767
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7689431514542046,
+    "bpsn_auc": 0.7214303157629507,
+    "bnsp_auc": 0.9299137623965281
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7785289642667024,
+    "bpsn_auc": 0.7023627371005283,
+    "bnsp_auc": 0.9423932386903222
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8622780582572074,
+    "bpsn_auc": 0.8688101348654356,
+    "bnsp_auc": 0.8994203065568478
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8316502301117686,
+    "bpsn_auc": 0.8071172700285696,
+    "bnsp_auc": 0.9215967168177501
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8269618200579824,
+    "bpsn_auc": 0.7990869184444388,
+    "bnsp_auc": 0.9265409914622094
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8542868670101785,
+    "bpsn_auc": 0.8162440482752139,
+    "bnsp_auc": 0.9280639899372927
+   }
+  },
+  "mean_bpsn": 0.7962232930828874
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "batch": 4096,
+   "weight_decay": 1e-05,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3298480096305195,
+  "std_pr_auc": 0.0031351740464475204,
+  "mean_roc_auc": 0.9371765608382152,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8490318806500882,
+    "bpsn_auc": 0.8034538410939421,
+    "bnsp_auc": 0.9335157612450198
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8501864602817534,
+    "bpsn_auc": 0.8240969932706929,
+    "bnsp_auc": 0.9242613443165113
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7929260968830653,
+    "bpsn_auc": 0.788689513164616,
+    "bnsp_auc": 0.9114706170478419
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.752269335602669,
+    "bpsn_auc": 0.7269731058361335,
+    "bnsp_auc": 0.9245142381396414
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7683903595552772,
+    "bpsn_auc": 0.7664119958445228,
+    "bnsp_auc": 0.9140191916979836
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8725212030465622,
+    "bpsn_auc": 0.8879151694508234,
+    "bnsp_auc": 0.8925814601407565
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8222128197555212,
+    "bpsn_auc": 0.8151111036122345,
+    "bnsp_auc": 0.9133784129599885
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7917364299799534,
+    "bpsn_auc": 0.7720869850082561,
+    "bnsp_auc": 0.9210743446230409
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8450653555582204,
+    "bpsn_auc": 0.8077145683586381,
+    "bnsp_auc": 0.9272999646080717
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8389667705088265,
+    "bpsn_auc": 0.8166942790425498,
+    "bnsp_auc": 0.9212132105207164
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8459325396825397,
+    "bpsn_auc": 0.821251108753457,
+    "bnsp_auc": 0.9221821993426538
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7731501152999243,
+    "bpsn_auc": 0.7220891902246838,
+    "bnsp_auc": 0.9318921686616111
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7821056495853234,
+    "bpsn_auc": 0.7056465722609937,
+    "bnsp_auc": 0.942749407150177
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8617372948288985,
+    "bpsn_auc": 0.870433654860893,
+    "bnsp_auc": 0.8981689479407438
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.837450507706918,
+    "bpsn_auc": 0.8104496752498235,
+    "bnsp_auc": 0.9241917114361548
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8247751953220972,
+    "bpsn_auc": 0.7974241089084674,
+    "bnsp_auc": 0.9254805307336564
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8596687069889685,
+    "bpsn_auc": 0.8188766385154429,
+    "bnsp_auc": 0.9300869678347043
+   }
+  },
+  "mean_bpsn": 0.7973716766738923
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "leaky_relu",
+   "dropout": 0.3,
+   "lr": 0.0003,
+   "batch": 4096,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3295327636570011,
+  "std_pr_auc": 0.0018447292862941564,
+  "mean_roc_auc": 0.9373555454613193,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8488180845795803,
+    "bpsn_auc": 0.8025667513218566,
+    "bnsp_auc": 0.9335588594009745
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8507297669837262,
+    "bpsn_auc": 0.8227336274069947,
+    "bnsp_auc": 0.9250393246477688
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7949636972120594,
+    "bpsn_auc": 0.791756591663068,
+    "bnsp_auc": 0.910409532406419
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7524050024050024,
+    "bpsn_auc": 0.728467285651236,
+    "bnsp_auc": 0.9235544474159406
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7694020140962745,
+    "bpsn_auc": 0.7680755075484397,
+    "bnsp_auc": 0.9130271174974736
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8726243047442769,
+    "bpsn_auc": 0.8878916793944915,
+    "bnsp_auc": 0.8922847657732578
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8222588702982424,
+    "bpsn_auc": 0.8155549265456179,
+    "bnsp_auc": 0.9124014862333092
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7923094663956868,
+    "bpsn_auc": 0.770639568240729,
+    "bnsp_auc": 0.921409565646713
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8471639285286006,
+    "bpsn_auc": 0.807820381902732,
+    "bnsp_auc": 0.9287202813409481
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8303219106957425,
+    "bpsn_auc": 0.8169505308724077,
+    "bnsp_auc": 0.9173020332180717
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8475618131868132,
+    "bpsn_auc": 0.8229316405535598,
+    "bnsp_auc": 0.9212160042323433
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7729511771765871,
+    "bpsn_auc": 0.7222278593742697,
+    "bnsp_auc": 0.9315019371550644
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.78226153014838,
+    "bpsn_auc": 0.7039960207178031,
+    "bnsp_auc": 0.9431451705348459
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8635639099903786,
+    "bpsn_auc": 0.8696976513075803,
+    "bnsp_auc": 0.899798869134085
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8395470815983637,
+    "bpsn_auc": 0.8070520864810482,
+    "bnsp_auc": 0.9263831670077692
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8265932877991253,
+    "bpsn_auc": 0.7944975243535073,
+    "bnsp_auc": 0.9271263322480164
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8594672107526138,
+    "bpsn_auc": 0.8229826843306286,
+    "bnsp_auc": 0.927762847575864
+   }
+  },
+  "mean_bpsn": 0.7974024892744689
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 1.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.32739426441904496,
+  "std_pr_auc": 0.001365753619620312,
+  "mean_roc_auc": 0.935853421344027,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8490204036639679,
+    "bpsn_auc": 0.804569634187672,
+    "bnsp_auc": 0.9317919133244952
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8492030967290563,
+    "bpsn_auc": 0.824854697053804,
+    "bnsp_auc": 0.9219035162343321
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.8004640659122493,
+    "bpsn_auc": 0.7841799644159979,
+    "bnsp_auc": 0.9151802199629819
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.751026751026751,
+    "bpsn_auc": 0.723118586012576,
+    "bnsp_auc": 0.9235320844098924
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7672357027753639,
+    "bpsn_auc": 0.7517784845399406,
+    "bnsp_auc": 0.9169417336469692
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8716216313097157,
+    "bpsn_auc": 0.88759156729039,
+    "bnsp_auc": 0.8904082901486894
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8245602432853634,
+    "bpsn_auc": 0.8141262966864594,
+    "bnsp_auc": 0.9131102605222159
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7919150434810388,
+    "bpsn_auc": 0.7619852776297519,
+    "bnsp_auc": 0.9239159176107085
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8480932965583403,
+    "bpsn_auc": 0.8090037061595403,
+    "bnsp_auc": 0.9283421351064693
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8424195223260644,
+    "bpsn_auc": 0.8180719725590242,
+    "bnsp_auc": 0.9224655705111562
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8523580586080586,
+    "bpsn_auc": 0.8219394403930962,
+    "bnsp_auc": 0.9238607248423434
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7697554716893895,
+    "bpsn_auc": 0.7068028368414149,
+    "bnsp_auc": 0.9347714211181595
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7770953722570311,
+    "bpsn_auc": 0.6927262226339025,
+    "bnsp_auc": 0.9440080382949829
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8629058033598722,
+    "bpsn_auc": 0.8691497693803598,
+    "bnsp_auc": 0.8989000954239157
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8351961428884506,
+    "bpsn_auc": 0.8022669127647866,
+    "bnsp_auc": 0.9260262849802801
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8214584049923838,
+    "bpsn_auc": 0.7943785485407134,
+    "bnsp_auc": 0.9247218786843487
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8580603105439708,
+    "bpsn_auc": 0.8103061622887072,
+    "bnsp_auc": 0.9320379326143833
+   }
+  },
+  "mean_bpsn": 0.7927558870222434
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 1024,
+   "weight_decay": 1e-05,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.32602848395574285,
+  "std_pr_auc": 0.0023807225050830457,
+  "mean_roc_auc": 0.9361833131443087,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8478930565576946,
+    "bpsn_auc": 0.8011535887094767,
+    "bnsp_auc": 0.9327534359783526
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8483691160274829,
+    "bpsn_auc": 0.8218725775366769,
+    "bnsp_auc": 0.9228823095919534
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7920663873053688,
+    "bpsn_auc": 0.7883116205068063,
+    "bnsp_auc": 0.908738806325166
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7543845043845043,
+    "bpsn_auc": 0.7306627024667781,
+    "bnsp_auc": 0.9222236780977182
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7667272629458242,
+    "bpsn_auc": 0.7708813608264733,
+    "bnsp_auc": 0.9090646444154918
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8733941276124502,
+    "bpsn_auc": 0.8918147654584576,
+    "bnsp_auc": 0.8877522218328433
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8223155390112152,
+    "bpsn_auc": 0.8213361541520063,
+    "bnsp_auc": 0.908077965569253
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7923253852393122,
+    "bpsn_auc": 0.7778780995818175,
+    "bnsp_auc": 0.9168010381408174
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8418275572610625,
+    "bpsn_auc": 0.8059052442038415,
+    "bnsp_auc": 0.9254098320939423
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8381360332294912,
+    "bpsn_auc": 0.8209874951552036,
+    "bnsp_auc": 0.9171631353882995
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8519879426129426,
+    "bpsn_auc": 0.8271167326054423,
+    "bnsp_auc": 0.920494598584974
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.772608282715029,
+    "bpsn_auc": 0.7293891819249797,
+    "bnsp_auc": 0.9276830561018068
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7805427808037636,
+    "bpsn_auc": 0.7075272402186755,
+    "bnsp_auc": 0.9406772303188011
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8579831329404115,
+    "bpsn_auc": 0.8700715926455309,
+    "bnsp_auc": 0.8936492532662642
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8367302213456059,
+    "bpsn_auc": 0.8147909462171913,
+    "bnsp_auc": 0.9188642580579598
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8165937791754705,
+    "bpsn_auc": 0.8014323590286148,
+    "bnsp_auc": 0.9169133186545773
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8579463060944542,
+    "bpsn_auc": 0.8233227841932773,
+    "bnsp_auc": 0.9255851394026184
+   }
+  },
+  "mean_bpsn": 0.8002620262018382
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.2,
+   "lr": 0.001,
+   "batch": 2048,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 3.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.3172109715505395,
+  "std_pr_auc": 0.0012498020117919304,
+  "mean_roc_auc": 0.9339040189493408,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8467922622319283,
+    "bpsn_auc": 0.8081141599661059,
+    "bnsp_auc": 0.9267898323573371
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8479545449516608,
+    "bpsn_auc": 0.8292293297673294,
+    "bnsp_auc": 0.9163222000013189
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7911410916361781,
+    "bpsn_auc": 0.7817007100238991,
+    "bnsp_auc": 0.9092877579185714
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7475610808944142,
+    "bpsn_auc": 0.7239063742831517,
+    "bnsp_auc": 0.9202426468842657
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7658846230546998,
+    "bpsn_auc": 0.7573505136798457,
+    "bnsp_auc": 0.9109076347817333
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8703758112754253,
+    "bpsn_auc": 0.8921572119995822,
+    "bnsp_auc": 0.8816789872461822
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8202202393173994,
+    "bpsn_auc": 0.8224342103798575,
+    "bnsp_auc": 0.9033088197523764
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7890461154395463,
+    "bpsn_auc": 0.7669462403250532,
+    "bnsp_auc": 0.9180544262464185
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8502518287564456,
+    "bpsn_auc": 0.8231357651838126,
+    "bnsp_auc": 0.9209948723797149
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8419522326064383,
+    "bpsn_auc": 0.8259879174181013,
+    "bnsp_auc": 0.9149702065605012
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8517246642246642,
+    "bpsn_auc": 0.8238524575662011,
+    "bnsp_auc": 0.9204867655959053
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.769771268838582,
+    "bpsn_auc": 0.7095628296008619,
+    "bnsp_auc": 0.9325729505789015
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7761341306689664,
+    "bpsn_auc": 0.6975693161110132,
+    "bnsp_auc": 0.9405979466767704
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8612736660929432,
+    "bpsn_auc": 0.871545767574299,
+    "bnsp_auc": 0.8931116216537028
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8353860764117175,
+    "bpsn_auc": 0.8038023188553786,
+    "bnsp_auc": 0.9230483927168764
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8207213404746696,
+    "bpsn_auc": 0.8041420801818667,
+    "bnsp_auc": 0.9149734416875908
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8601641479637123,
+    "bpsn_auc": 0.8081786293400633,
+    "bnsp_auc": 0.9324357895373373
+   }
+  },
+  "mean_bpsn": 0.7970362254268483
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "relu",
+   "dropout": 0.1,
+   "lr": 0.001,
+   "batch": 4096,
+   "weight_decay": 0.0001,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.31050269099990346,
+  "std_pr_auc": 0.004812280156311841,
+  "mean_roc_auc": 0.93251778292183,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.845481678980713,
+    "bpsn_auc": 0.799900379632893,
+    "bnsp_auc": 0.9303908984780103
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8475413629857756,
+    "bpsn_auc": 0.8252993823318019,
+    "bnsp_auc": 0.9186678194636806
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7993721461187215,
+    "bpsn_auc": 0.7949899493511289,
+    "bnsp_auc": 0.9069730203928904
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7521645021645021,
+    "bpsn_auc": 0.7324510118668397,
+    "bnsp_auc": 0.917856713980155
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.765364506878255,
+    "bpsn_auc": 0.7717847631089481,
+    "bnsp_auc": 0.9061731922734182
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8693191737014199,
+    "bpsn_auc": 0.8849641086624866,
+    "bnsp_auc": 0.8886001890760243
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8182731323475286,
+    "bpsn_auc": 0.8111207142518799,
+    "bnsp_auc": 0.9102278017032004
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7910728311669382,
+    "bpsn_auc": 0.7702784015100356,
+    "bnsp_auc": 0.9181892514326544
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8448854778750449,
+    "bpsn_auc": 0.7965621457996891,
+    "bnsp_auc": 0.9287629638044104
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8329698857736241,
+    "bpsn_auc": 0.8110306295908615,
+    "bnsp_auc": 0.9182938913114655
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8485844017094015,
+    "bpsn_auc": 0.8169568111952391,
+    "bnsp_auc": 0.9221207077749074
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7697212381112004,
+    "bpsn_auc": 0.7251849872597601,
+    "bnsp_auc": 0.9270172976724376
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7780699704509715,
+    "bpsn_auc": 0.7029616721427241,
+    "bnsp_auc": 0.9399858496159854
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8556005735867017,
+    "bpsn_auc": 0.865424296789346,
+    "bnsp_auc": 0.8934865625917499
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8386251734969683,
+    "bpsn_auc": 0.8106441711296193,
+    "bnsp_auc": 0.9210819585163851
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8164463662719277,
+    "bpsn_auc": 0.792598659282253,
+    "bnsp_auc": 0.9191784908534529
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8584103929637699,
+    "bpsn_auc": 0.8177388385279014,
+    "bnsp_auc": 0.9264439608021829
+   }
+  },
+  "mean_bpsn": 0.7958759366137299
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "leaky_relu",
+   "dropout": 0.3,
+   "lr": 0.001,
+   "batch": 4096,
+   "weight_decay": 0.0001,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.30238521887159964,
+  "std_pr_auc": 0.0029234786930890867,
+  "mean_roc_auc": 0.9299572279223842,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8445765469421981,
+    "bpsn_auc": 0.7875733537246661,
+    "bnsp_auc": 0.934830758493616
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8452434457167379,
+    "bpsn_auc": 0.8121891905911442,
+    "bnsp_auc": 0.9237886832691999
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7882951870444426,
+    "bpsn_auc": 0.7808328894242702,
+    "bnsp_auc": 0.9081193722995071
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7515262515262515,
+    "bpsn_auc": 0.7171805607466004,
+    "bnsp_auc": 0.9225484483516873
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7636612692894571,
+    "bpsn_auc": 0.7635433262503019,
+    "bnsp_auc": 0.908361509444912
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8696129758427594,
+    "bpsn_auc": 0.8853266836203932,
+    "bnsp_auc": 0.8874927082021165
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.820448760807595,
+    "bpsn_auc": 0.8083505441234691,
+    "bnsp_auc": 0.9115547146719702
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7906051791741968,
+    "bpsn_auc": 0.763307318154738,
+    "bnsp_auc": 0.9200932166922282
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8344525722508694,
+    "bpsn_auc": 0.7864608131283071,
+    "bnsp_auc": 0.9267537263577224
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8331775700934579,
+    "bpsn_auc": 0.8097346005960581,
+    "bnsp_auc": 0.9175012215985191
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8490880647130646,
+    "bpsn_auc": 0.8176798218201885,
+    "bnsp_auc": 0.922077777341372
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7696626152758433,
+    "bpsn_auc": 0.7193170379457029,
+    "bnsp_auc": 0.9278969332165273
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7778736188614824,
+    "bpsn_auc": 0.6961635041308984,
+    "bnsp_auc": 0.9414230921576585
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8591442562348833,
+    "bpsn_auc": 0.8643503069363979,
+    "bnsp_auc": 0.8961025064395031
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8371816787201403,
+    "bpsn_auc": 0.8071237648342093,
+    "bnsp_auc": 0.921431159305811
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8096162350744436,
+    "bpsn_auc": 0.7858733811242637,
+    "bnsp_auc": 0.9177653092376974
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8574188193796037,
+    "bpsn_auc": 0.8215411872253382,
+    "bnsp_auc": 0.9237238113975457
+   }
+  },
+  "mean_bpsn": 0.7897969579045264
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "sigmoid",
+   "dropout": 0.1,
+   "lr": 0.001,
+   "batch": 4096,
+   "weight_decay": 1e-05,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.30207137831861913,
+  "std_pr_auc": 0.00334122379097483,
+  "mean_roc_auc": 0.9302080916716371,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8429737978083892,
+    "bpsn_auc": 0.7841799654270882,
+    "bnsp_auc": 0.9329208044877779
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8453525512428792,
+    "bpsn_auc": 0.8076166498058266,
+    "bnsp_auc": 0.9235365957307379
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7922064224736948,
+    "bpsn_auc": 0.781207416404966,
+    "bnsp_auc": 0.907492917055531
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7615378448711781,
+    "bpsn_auc": 0.7127703499654855,
+    "bnsp_auc": 0.9251230485183545
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7675446449556785,
+    "bpsn_auc": 0.7570330574166203,
+    "bnsp_auc": 0.9090387541748868
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.867802708344812,
+    "bpsn_auc": 0.8829285318302633,
+    "bnsp_auc": 0.8846953320382558
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8173341167696341,
+    "bpsn_auc": 0.8073124507918236,
+    "bnsp_auc": 0.9073236711380731
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7898528459937587,
+    "bpsn_auc": 0.7714591834057314,
+    "bnsp_auc": 0.9127843894015565
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8434464564096413,
+    "bpsn_auc": 0.7933019338158578,
+    "bnsp_auc": 0.9297835872822984
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8347092419522326,
+    "bpsn_auc": 0.8083084871848513,
+    "bnsp_auc": 0.9186553325586501
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8395413614163615,
+    "bpsn_auc": 0.8179645244615563,
+    "bnsp_auc": 0.9130105442595868
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.7682412764096547,
+    "bpsn_auc": 0.7337920551245363,
+    "bnsp_auc": 0.9178278700512278
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7785355696225846,
+    "bpsn_auc": 0.7053633102979152,
+    "bnsp_auc": 0.9354635660549049
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.859458128786216,
+    "bpsn_auc": 0.8670065172188494,
+    "bnsp_auc": 0.891503841424824
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8414098911534809,
+    "bpsn_auc": 0.80129553166475,
+    "bnsp_auc": 0.9225004304889367
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8063977200137586,
+    "bpsn_auc": 0.793558366160874,
+    "bnsp_auc": 0.9092021750707006
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8530742008737652,
+    "bpsn_auc": 0.8290108161449454,
+    "bnsp_auc": 0.9134736881051997
+   }
+  },
+  "mean_bpsn": 0.79141818512482
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "tanh",
+   "dropout": 0.0,
+   "lr": 0.003,
+   "batch": 1024,
+   "weight_decay": 0.0,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.298302802283657,
+  "std_pr_auc": 0.001461346451474855,
+  "mean_roc_auc": 0.9278069864565819,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8341215243687958,
+    "bpsn_auc": 0.7898152669416395,
+    "bnsp_auc": 0.924248823744346
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8374283557627826,
+    "bpsn_auc": 0.8113207322670711,
+    "bnsp_auc": 0.9152706966779953
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7884768782438526,
+    "bpsn_auc": 0.7753428673417595,
+    "bnsp_auc": 0.9060061480509005
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.738656405323072,
+    "bpsn_auc": 0.7163537388656929,
+    "bnsp_auc": 0.9168365998340079
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.752218166373645,
+    "bpsn_auc": 0.7523759634902601,
+    "bnsp_auc": 0.902838099136401
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8624352606190593,
+    "bpsn_auc": 0.8798093840868457,
+    "bnsp_auc": 0.8800377768321098
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.8098902023488548,
+    "bpsn_auc": 0.8047234511297281,
+    "bnsp_auc": 0.9022533751747637
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7798970657363733,
+    "bpsn_auc": 0.761631465163757,
+    "bnsp_auc": 0.91084199061389
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8165247631610505,
+    "bpsn_auc": 0.7945021525157885,
+    "bnsp_auc": 0.9138875172755003
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8236760124610593,
+    "bpsn_auc": 0.7998257183178393,
+    "bnsp_auc": 0.9145756921000804
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8401098901098901,
+    "bpsn_auc": 0.8084157915913252,
+    "bnsp_auc": 0.9174826632817442
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.760626732629397,
+    "bpsn_auc": 0.7224816982463282,
+    "bnsp_auc": 0.9183551498387061
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7663755544204183,
+    "bpsn_auc": 0.7011379701756272,
+    "bnsp_auc": 0.9310202495714872
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8494917521268455,
+    "bpsn_auc": 0.8616498462638164,
+    "bnsp_auc": 0.8855507783828911
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.818891080429542,
+    "bpsn_auc": 0.7976744697343443,
+    "bnsp_auc": 0.910678794468196
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.8071347845314727,
+    "bpsn_auc": 0.7957377369819989,
+    "bnsp_auc": 0.9055909464034402
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8509093843298636,
+    "bpsn_auc": 0.8144034232365919,
+    "bnsp_auc": 0.9183265810627547
+   }
+  },
+  "mean_bpsn": 0.7874824515500243
+ },
+ {
+  "setting": {
+   "text": "both",
+   "hidden": [
+    256,
+    128
+   ],
+   "activation": "sigmoid",
+   "dropout": 0.1,
+   "lr": 0.0003,
+   "batch": 4096,
+   "weight_decay": 0.0001,
+   "loss": "bce",
+   "gamma": 0.0,
+   "alpha": null,
+   "identity_weight": 0.0,
+   "outputs": "joint"
+  },
+  "labels": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "mean_pr_auc": 0.19427099492415156,
+  "std_pr_auc": 0.0024969614833826063,
+  "mean_roc_auc": 0.869129924051902,
+  "bias": {
+   "male": {
+    "n": 46479,
+    "subgroup_auc": 0.8153700618425166,
+    "bpsn_auc": 0.766664778715861,
+    "bnsp_auc": 0.9106103353977919
+   },
+   "female": {
+    "n": 55625,
+    "subgroup_auc": 0.8236770856811738,
+    "bpsn_auc": 0.8014945504392259,
+    "bnsp_auc": 0.8958925616575133
+   },
+   "transgender": {
+    "n": 2596,
+    "subgroup_auc": 0.7726653124025072,
+    "bpsn_auc": 0.798642313367357,
+    "bnsp_auc": 0.8634646225446871
+   },
+   "heterosexual": {
+    "n": 1361,
+    "subgroup_auc": 0.7393624893624893,
+    "bpsn_auc": 0.7885771189559464,
+    "bnsp_auc": 0.846923199760308
+   },
+   "homosexual_gay_or_lesbian": {
+    "n": 11441,
+    "subgroup_auc": 0.7465164118884,
+    "bpsn_auc": 0.8112936223562632,
+    "bnsp_auc": 0.8378699254808439
+   },
+   "christian": {
+    "n": 42372,
+    "subgroup_auc": 0.8478270203121318,
+    "bpsn_auc": 0.8845528601504377,
+    "bnsp_auc": 0.8416392879448771
+   },
+   "jewish": {
+    "n": 7994,
+    "subgroup_auc": 0.7967166309284447,
+    "bpsn_auc": 0.8110534743929037,
+    "bnsp_auc": 0.8716196707439561
+   },
+   "muslim": {
+    "n": 21734,
+    "subgroup_auc": 0.7679075812833478,
+    "bpsn_auc": 0.7821062030153736,
+    "bnsp_auc": 0.8754652630078447
+   },
+   "hindu": {
+    "n": 600,
+    "subgroup_auc": 0.8269276891713634,
+    "bpsn_auc": 0.7894108843181661,
+    "bnsp_auc": 0.9046503465314657
+   },
+   "buddhist": {
+    "n": 607,
+    "subgroup_auc": 0.8185098650051921,
+    "bpsn_auc": 0.8165561984513369,
+    "bnsp_auc": 0.8800584134484802
+   },
+   "atheist": {
+    "n": 1539,
+    "subgroup_auc": 0.8196008852258853,
+    "bpsn_auc": 0.7988783276519036,
+    "bnsp_auc": 0.8938250709804194
+   },
+   "black": {
+    "n": 15524,
+    "subgroup_auc": 0.74654455662989,
+    "bpsn_auc": 0.7438340693008452,
+    "bnsp_auc": 0.8853096772757665
+   },
+   "white": {
+    "n": 26046,
+    "subgroup_auc": 0.7612352599076235,
+    "bpsn_auc": 0.7044032486360076,
+    "bnsp_auc": 0.9137732433575234
+   },
+   "asian": {
+    "n": 4776,
+    "subgroup_auc": 0.8467862938216342,
+    "bpsn_auc": 0.846697958705718,
+    "bnsp_auc": 0.8785258236763633
+   },
+   "latino": {
+    "n": 2095,
+    "subgroup_auc": 0.8284900284900285,
+    "bpsn_auc": 0.8085364266180961,
+    "bnsp_auc": 0.8935763004724366
+   },
+   "other_race_or_ethnicity": {
+    "n": 527,
+    "subgroup_auc": 0.7903297135275907,
+    "bpsn_auc": 0.7767035878098226,
+    "bnsp_auc": 0.8906257216161556
+   },
+   "psychiatric_or_mental_illness": {
+    "n": 5121,
+    "subgroup_auc": 0.8339362082281472,
+    "bpsn_auc": 0.8135723636750921,
+    "bnsp_auc": 0.8927103357524682
+   }
+  },
+  "mean_bpsn": 0.796645763915315
+ }
+]

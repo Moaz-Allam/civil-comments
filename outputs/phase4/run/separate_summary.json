@@ -1,0 +1,12 @@
+{
+ "joint_mean_pr_auc": 0.3321057470907537,
+ "separate_pr_auc": {
+  "toxicity": 0.5410425919241306,
+  "insult": 0.5360448493173219,
+  "identity_attack": 0.29218386537225005,
+  "obscene": 0.24503202520846995,
+  "threat": 0.214896661324171,
+  "sexual_explicit": 0.1875652717196456
+ },
+ "separate_mean_pr_auc": 0.33612754414433144
+}

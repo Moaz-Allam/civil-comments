@@ -41,3 +41,13 @@ The design document should say how each point is handled.
 - The tabular features `is_reply` and the publication one-hot are not part of a plain text input: the client could ask for them as optional fields, or the server uses defaults ("other" publication, not a reply).
 - Output: a score and a yes/no per label, using the cuts chosen by CV, so a moderator can sort a queue by score.
 - Client/server: the model and pipeline sit on a server behind an HTTP API (for example a POST that takes text and returns six scores); the client (web page or moderator queue) only sends text and shows results.
+
+## Status (2026-11-10)
+
+Part A (model design) is done; the search finished and every model section of the report is written.
+
+- Report: `Phase4_Design_Report.docx` / `.pdf`, built by `phase4/report/build_report.js`. Section 5 (Application Design) is a placeholder for Kareem: replace the line `A.push(body("_{[Application design: written by Kareem Elhenawy; to be added.]}_"));` with the section's paragraphs, tables and figures (helpers in the same file: `body`, `h2`, `bullet`, `table`, `figure`; put figure PNGs in `phase4/report/figures/` and add their keys to `FIGS`).
+- Build: `npm install docx` once, then `node phase4/report/build_report.js` (run `python phase4/report/collect.py` first only if the search outputs change).
+- Final model: six single-label MLPs (BCE, ReLU, 256-128, dropout 0.2, both text vectors, 233 inputs) × 5 seeds, scores averaged. Weights in `outputs/phase4/run/models/mlp_seed{0-4}_{label index}.pt`, setting and per-label cuts in `outputs/phase4/run/final.json`. The server needs these, plus the Phase 2 feature pipeline (scaler, Word2Vec, Doc2Vec) to turn a comment into the 233 inputs.
+- Test results (toxicity): PR-AUC 0.565, F1 0.527 at cut 0.238; Phase 3 MLP was 0.501 / 0.487.
+- Not in git: `outputs/phase4/run/oof/` (816 MB of out-of-fold scores) and the data pack in `data/colab_pack/` (rebuild with `python phase4/make_pack.py`).
